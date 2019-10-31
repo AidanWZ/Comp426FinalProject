@@ -1,0 +1,7 @@
+$(function () {
+    loadHome();
+})
+
+function loadHome() {
+    
+}
