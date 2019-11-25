@@ -1,0 +1,35 @@
+"Portal":{
+    "Login": {
+        "User-Username": "Password"
+        ...
+    }
+
+    "Requirements": {
+        "Computer-science-ba":{
+            "Major-reqs": [
+
+            ],
+            "Electives": [
+
+            ],
+            "Additonal": [
+
+            ]
+
+        }
+    }
+    "User-data": {
+        "User-Username": {
+            "Name": "string",
+            "Username": "string"
+            "Major": "string",
+            "Taken": [
+
+            ],
+            "Planned": [
+
+            ],
+            "registered": false
+        }
+    }
+}
