@@ -1,10 +1,8 @@
 const pubRoot = new axios.create({
-    baseURL: "http://localhost:3000/public"
+    baseURL: "http://localhost:3000/public/Portal"
 });
 
-$(function () {
-    $("#class-yes").on("click", loadClassForm);
-    $("#class-no").on("click", loadPortal);
+$(document).ready(function(){
     $("#submit-user").on("click", submitRegistry);
     $("#cancel-user").on("click", cancelRegistry);
 });
@@ -30,7 +28,7 @@ async function submitRegistry() {
         data: password
     });
     document.getElementById("register").innerHTML = "";
-    document.getElementById("register").innerHTML.append(`
+    document.getElementById("register").innerHTML = `
         <div id="yesno">
             <div id="prompt">
                 <h2>Do you want to add your classes now?</h2>
@@ -42,10 +40,12 @@ async function submitRegistry() {
                 </div>
             </div>
         </div>
-    `)
+    `;
+    $("#class-yes").on("click", loadClassForm);
+    $("#class-no").on("click", loadHome);
 }
 function cancelRegistry() {
-    window.location.href = 'http://localhost:3000/index.html';
+    window.location.href = 'http://localhost:3001/index.html';
 }
 
 async function getRegistered(username) {
@@ -57,7 +57,8 @@ async function registerUser(username) {
     });
 }
 function loadClassForm() {
-    window.location.href = 'http://localhost:300/classRegistration.html';
+    window.location.assign('http://localhost:3001/html/classRegistration.html');
 }
-
-export default loadClassForm
+function loadHome() {
+    window.location.assign('http://localhost:3001/html/home.html');
+}

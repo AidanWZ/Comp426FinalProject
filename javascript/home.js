@@ -1,16 +1,14 @@
 const pubRoot = new axios.create({
-    baseURL: "http://localhost:3000/public"
+    baseURL: "http://localhost:3001/public/Portal"
 });
 
-$(function () {
+$(document).ready(function(){
     loadWorksheet();
 })
 
-function loadWorksheet(userdata) {
-    const reqs =  await pubRoot.get('/Requirements/' + userdata.Major);
+async function loadWorksheet(userdata) {
     const worksheet = 
     `
     
-    `
+    `;
 }
-export default loadWorksheet;
