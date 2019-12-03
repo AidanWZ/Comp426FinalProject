@@ -28,11 +28,12 @@ async function submitClasses() {
     var fields = document.getElementsByClassName("derp")
     var classes = []
     for(let i = 0; i < fields.length; i++) {
-        classes.push(fields[i].value)
+        classes.push(fields[i].value);
     }
-    // const result = await pubRoot.post('/User-data/Taken', {
-    //     data: classes
-    // })
+    const username = localStorage.getItem("username");
+    const result = await pubRoot.post('/User-data/' + username + '/Taken/', {
+        data: classes
+    })
     window.location.href = 'http://localhost:3001/html/home.html';
 }
 function cancelClasses() {

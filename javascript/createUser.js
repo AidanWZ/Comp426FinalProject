@@ -8,11 +8,11 @@ $(document).ready(function(){
 });
 
 async function submitRegistry() {
-    const username = document.getElementById("new-username").value;
-    const name = document.getElementById("new-name").value;
-    const password = document.getElementById("new-password").value;
-    const major = document.getElementById("new-major").value;
-    const email = (document.getElementById("new-email").value != "Email (optional)") ? document.getElementById("new-email").value : null;
+    const username = document.getElementById("username").value;
+    const name = document.getElementById("name").value;
+    const password = document.getElementById("password").value;
+    const major = document.getElementById("major").value;
+    const email = (document.getElementById("email").value != "Email (optional)") ? document.getElementById("email").value : null;
     const userData = {
         "Name": name,
             "Username": username,
@@ -27,6 +27,7 @@ async function submitRegistry() {
     const result2 = await pubRoot.post('/Login/' + username, {
         data: password
     });
+    localStorage.setItem("username", username);
     document.getElementById("register").innerHTML = "";
     document.getElementById("register").innerHTML = `
         <div id="yesno">
@@ -57,6 +58,7 @@ async function registerUser(username) {
     });
 }
 function loadClassForm() {
+
     window.location.assign('http://localhost:3001/html/classRegistration.html');
 }
 function loadHome() {
