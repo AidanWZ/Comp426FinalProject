@@ -2,6 +2,8 @@ const pubRoot = new axios.create({
     baseURL: "http://localhost:3001/public/Portal"
 });
 
+
+
 $(document).ready(function(){
     $("#logout").on("click", logout)
     $("#editClasses").on("click", editClasses)
