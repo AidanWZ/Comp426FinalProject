@@ -14,6 +14,7 @@ function login() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     if (isValidUser(username, password)) {
+        localStorage.setItem("username", username);
         $message.html('<span class="has-text-success">Success! You are now logged in.</span>');
         window.location.assign('http://localhost:3001/html/home.html');
     }

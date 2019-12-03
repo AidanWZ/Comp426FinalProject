@@ -27,6 +27,7 @@ async function submitRegistry() {
     const result2 = await pubRoot.post('/Login/' + username, {
         data: password
     });
+    localStorage.setItem("username", username);
     document.getElementById("register").innerHTML = "";
     document.getElementById("register").innerHTML = `
         <div id="yesno">
@@ -57,6 +58,7 @@ async function registerUser(username) {
     });
 }
 function loadClassForm() {
+
     window.location.assign('http://localhost:3001/html/classRegistration.html');
 }
 function loadHome() {

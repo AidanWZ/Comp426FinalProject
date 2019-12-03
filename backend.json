@@ -6,7 +6,7 @@
 
     "Requirements": {
         "Computer-science-ba":{
-            "Major-reqs": [
+            "MajorReqs": [
 
             ],
             "Electives": [
@@ -14,14 +14,16 @@
             ],
             "Additonal": [
 
-            ]
+            ],
+            "GenEds": [
 
+            ]
         }
     }
     "User-data": {
-        "User-Username": {
+        "Username": {
             "Name": "string",
-            "Username": "string"
+            "Username": "string",
             "Major": "string",
             "Taken": [
 
