@@ -8,11 +8,11 @@ $(document).ready(function(){
 });
 
 async function submitRegistry() {
-    const username = document.getElementById("new-username").value;
-    const name = document.getElementById("new-name").value;
-    const password = document.getElementById("new-password").value;
-    const major = document.getElementById("new-major").value;
-    const email = (document.getElementById("new-email").value != "Email (optional)") ? document.getElementById("new-email").value : null;
+    const username = document.getElementById("username").value;
+    const name = document.getElementById("name").value;
+    const password = document.getElementById("password").value;
+    const major = document.getElementById("major").value;
+    const email = (document.getElementById("email").value != "Email (optional)") ? document.getElementById("email").value : null;
     const userData = {
         "Name": name,
             "Username": username,

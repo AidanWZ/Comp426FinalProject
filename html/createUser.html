@@ -5,29 +5,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>New User</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+        <link rel="stylesheet" href="createUser-styles.css" />
 </head>
 
 <body>
+   
     <div id="register">
         <div class="register-card">
-            <div class="register-card-title">
+            <div class="card-title">
                 <h1>New User</h1>
             </div>
-            <div class="register-content">
+            <div class="content">
                 <form id="register-form">
-                    <input id="new-username" placeholder="Username">
-                    <input id="new-name" placeholder="Preferred name">
-                    <input id="new-password" placeholder="Password">
-                    <input id="new-confirm" placeholder="Confirm Password">
-                    <input id="new-email" placeholder="Email (optional)">
-                    <input id="new-major" placeholder="Intended major">             
-                </form>
-                <div class="field">
-                    <div class="control">
-                        <button id="submit-user" type="button">Submit</button>
-                        <button id="cancel-user" type="button">Cancel</button>
+                    <input id="username" placeholder="Username">
+                    <input id="name" placeholder="Preferred name">
+                    <input id="password" placeholder="Password">
+                    <input id="confirm" placeholder="Confirm Password">
+                    <input id="email" placeholder="Email (optional)">
+                    <input id="major" placeholder="Intended major">
+
+                    <div class="field">
+                        <div class="control">
+                            <button id="submit-user" type="button">Submit</button>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button id="cancel-user" type="button">Cancel</button>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <p id="message"></p>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

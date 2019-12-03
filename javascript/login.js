@@ -14,16 +14,11 @@ function login() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     if (isValidUser(username, password)) {
-        alert("here");
-        const goodFeedback = `<span class="has-text-success">Suck-sess!</span>`
-        document.getElementById("feedback").append(goodFeedback);
+        $message.html('<span class="has-text-success">Success! You are now logged in.</span>');
         window.location.assign('http://localhost:3001/html/home.html');
     }
     else {
-        alert("there");
-        const badFeedback = `<span class="has-text-danger">Invalid login</span>`
-        document.getElementById("feedback").innerHTML = "";
-        document.getElementById("feedback").append(badFeedback);
+        $message.html('<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>');
     }  
 }
 function createAccount() {
@@ -31,7 +26,6 @@ function createAccount() {
 }
 
 async function isValidUser(username, password) {
-    alert("everywhere");
     const serverpassword = await pubRoot.get('/User-data/Login/'+username);
     return password == serverpassword;
 }
