@@ -1,20 +1,18 @@
 const pubRoot = new axios.create({
-    baseURL: "http://localhost:3000/public"
+    baseURL: "http://localhost:3000/public/Portal"
 });
 
-$(function () {
-    $("#class-yes").on("click", loadClassForm);
-    $("#class-no").on("click", loadPortal);
+$(document).ready(function(){
     $("#submit-user").on("click", submitRegistry);
     $("#cancel-user").on("click", cancelRegistry);
 });
 
 async function submitRegistry() {
-    const username = document.getElementById("new-username").value;
-    const name = document.getElementById("new-name").value;
-    const password = document.getElementById("new-password").value;
-    const major = document.getElementById("new-major").value;
-    const email = (document.getElementById("new-email").value != "Email (optional)") ? document.getElementById("new-email").value : null;
+    const username = document.getElementById("username").value;
+    const name = document.getElementById("name").value;
+    const password = document.getElementById("password").value;
+    const major = document.getElementById("major").value;
+    const email = (document.getElementById("email").value != "Email (optional)") ? document.getElementById("email").value : null;
     const userData = {
         "Name": name,
             "Username": username,
@@ -29,8 +27,9 @@ async function submitRegistry() {
     const result2 = await pubRoot.post('/Login/' + username, {
         data: password
     });
+    localStorage.setItem("username", username);
     document.getElementById("register").innerHTML = "";
-    document.getElementById("register").innerHTML.append(`
+    document.getElementById("register").innerHTML = `
         <div id="yesno">
             <div id="prompt">
                 <h2>Do you want to add your classes now?</h2>
@@ -42,10 +41,12 @@ async function submitRegistry() {
                 </div>
             </div>
         </div>
-    `)
+    `;
+    $("#class-yes").on("click", loadClassForm);
+    $("#class-no").on("click", loadHome);
 }
 function cancelRegistry() {
-    window.location.href = 'http://localhost:3000/index.html';
+    window.location.href = 'http://localhost:3001/index.html';
 }
 
 async function getRegistered(username) {
@@ -57,7 +58,9 @@ async function registerUser(username) {
     });
 }
 function loadClassForm() {
-    window.location.href = 'http://localhost:300/classRegistration.html';
-}
 
-export default loadClassForm
+    window.location.assign('http://localhost:3001/html/classRegistration.html');
+}
+function loadHome() {
+    window.location.assign('http://localhost:3001/html/home.html');
+}

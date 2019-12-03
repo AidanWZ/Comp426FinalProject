@@ -1,20 +1,18 @@
-import loadPortal from home;
-
 const pubRoot = new axios.create({
-    baseURL: "http://localhost:3000/public"
+    baseURL: "http://localhost:3000/public/Portal"
 });
+var counter = 2;
 
 $(document).ready(function(){
-    var counter = 1;
-    $("#addButton").click();
-    $("#removeButton").click();
-    $("submitButton").on("click", {"info": username}, submitRegistry);
-    $("cancelButton").on("click", loadPortal);
+    $("#addButton").on("click", addButton);
+    $("#removeButton").on("click", removeButton);
+    $("#submitButton").on("click", submitClasses);
+    $("#cancelButton").on("click", cancelClasses);
 });
 
 function addButton() {
     var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
-    newTextBoxDiv.after().html(`<label>Textbox#${counter}</label>
+    newTextBoxDiv.after().html(`<label>Class title</label>
                                 <input type="text" class="derp" name="textbox${counter}" id="textbox${counter}"  value="">`);
     newTextBoxDiv.appendTo("#TextBoxesGroup");
     counter++;
@@ -26,17 +24,18 @@ function removeButton() {
     counter--;
     $("#TextBoxDiv" + counter).remove();
 }
-function submitClasses() {
+async function submitClasses() {
     var fields = document.getElementsByClassName("derp")
     var classes = []
     for(let i = 0; i < fields.length; i++) {
-        classes.append(fields[i].value)
+        classes.push(fields[i].value);
     }
-    const result = await pubRoot.post('/User-data/Taken', {
+    const username = localStorage.getItem("username");
+    const result = await pubRoot.post('/User-data/' + username + '/Taken/', {
         data: classes
     })
-    window.location.href = 'http://localhost:300/home.html';
+    window.location.href = 'http://localhost:3001/html/home.html';
 }
 function cancelClasses() {
-    window.location.href = 'http://localhost:300/home.html';
+    window.location.href = 'http://localhost:3001/html/home.html';
 }
