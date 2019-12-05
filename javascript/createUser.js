@@ -28,25 +28,10 @@ async function submitRegistry() {
         data: password
     });
     localStorage.setItem("username", username);
-    document.getElementById("register").innerHTML = "";
-    document.getElementById("register").innerHTML = `
-        <div id="yesno">
-            <div id="prompt">
-                <h2>Do you want to add your classes now?</h2>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <button id="class-yes" type="button">Yes!</button>
-                    <button id="class-no"  data=${username} type="button">No...?</button>
-                </div>
-            </div>
-        </div>
-    `;
-    $("#class-yes").on("click", loadClassForm);
-    $("#class-no").on("click", loadHome);
+    window.location.assign('http://localhost:3001/html/add-classes-now/addClassesNow.html');
 }
 function cancelRegistry() {
-    window.location.href = 'http://localhost:3001/index.html';
+    window.location.assign('http://localhost:3001/index.html');
 }
 
 async function getRegistered(username) {
@@ -56,11 +41,4 @@ async function registerUser(username) {
     return await pubRoot.post('/User-data/registered/', {
         data: true
     });
-}
-function loadClassForm() {
-
-    window.location.assign('http://localhost:3001/html/classRegistration.html');
-}
-function loadHome() {
-    window.location.assign('http://localhost:3001/html/home.html');
 }

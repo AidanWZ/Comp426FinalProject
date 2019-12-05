@@ -1,8 +1,18 @@
 "Portal":{
+
     "Login": {
         "User-Username": "Password"
         ...
     }
+
+    "Departments": [
+        {
+            "Name": "string",
+            "Classes": [
+
+            ]
+        }
+    ]
 
     "Requirements": {
         "Computer-science-ba":{
@@ -28,9 +38,11 @@
             "Taken": [
 
             ],
-            "Planned": [
-
-            ],
+            "Planned": {
+                "Spring2019": [
+                    
+                ]
+            },
             "registered": false
         }
     }

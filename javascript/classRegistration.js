@@ -34,8 +34,8 @@ async function submitClasses() {
     const result = await pubRoot.post('/User-data/' + username + '/Taken/', {
         data: classes
     })
-    window.location.href = 'http://localhost:3001/html/home.html';
+    window.location.href = 'http://localhost:3001/html/home/home.html';
 }
 function cancelClasses() {
-    window.location.href = 'http://localhost:3001/html/home.html';
+    window.location.href = 'http://localhost:3001/html/home/home.html';
 }

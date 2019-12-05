@@ -15,15 +15,15 @@ function login() {
     const password = document.getElementById("password").value;
     if (isValidUser(username, password)) {
         localStorage.setItem("username", username);
-        $message.html('<span class="has-text-success">Success! You are now logged in.</span>');
-        window.location.assign('http://localhost:3001/html/home.html');
+        document.getElementById("message").innerHTML = '<span class="has-text-success">Success! You are now logged in.</span>';
+        window.location.assign('http://localhost:3001/html/home/home.html');
     }
     else {
         $message.html('<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>');
     }  
 }
 function createAccount() {
-    window.location.replace('http://localhost:3001/html/createUser.html');
+    window.location.replace('http://localhost:3001/html/create-user/createUser.html');
 }
 
 async function isValidUser(username, password) {
