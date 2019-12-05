@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Class Registration</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+        <link rel="stylesheet" href="classRegistrationInitial-styles.css" />
+</head>
+
+<body>
+    <div id="register">
+        <div class="register-card">
+            <div class="register-card-title">
+                <h1>New User</h1>
+            </div>
+            <div class="advice">
+                <p>Type desired classes in the format: 'COMP426'</p>
+            </div>
+            <div class="register-content">
+                <div id='TextBoxesGroup'>
+                    <div id="TextBoxDiv1">
+                        <label>Class title</label>
+                        <input class="derp" type='textbox' id='textbox1' name='textbox1' value=''>
+                    </div>
+                </div>
+                <button type='button' id='addButton'>Add another class +</button>
+                <button type='button' id='removeButton'>Remove a class -</button>
+                <button type='button' id='submitButton'>Submit classes</button>
+                <button type='button' id='cancelButton'>Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./../../node_modules/axios/dist/axios.min.js"></script>
+    <script src="./../../javascript/classRegistration.js"></script>
+</body>
+</html>

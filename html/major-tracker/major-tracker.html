@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./../../node_modules/bulma/css/bulma.css" />
+        <title>Major Tracker</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+        <link rel="stylesheet" href="major-tracker-styles.css" />
+</head>
+
+<body>
+    <div id="portal">
+        <div class='navBar' style='padding: 10px; background-color: #99badd'>
+            <div class='has-text-weight-bold is-family-primary is-capitalized has-text-black is-size-2'>
+                <ul>
+                    <li id="home"><a href="./../home/home.html">Home</a></li>
+                    <li id="major-tracker"><a href="major-tracker.html">MajorTracker</a></li>
+                    <li id="class-registration"><a href="./../class-registration/classRegistration.html">ClassRegistration</a></li>
+                    <li id="planner"><a href="./../planner/planner.html">Planner</a></li>
+                    <li id="logout" style="float:right"><a class="active" href="./../../index.html">Logout</a></li>
+                </ul>
+            </div>    
+        </div>
+        <div class='title has-text-weight-bold is-family-primary is-capitalized has-text-black is-size-3 has-background-color-white has-text-centered' style='margin-top: 10px'>
+            Hi User
+        </div>
+        <div class='subtitle has-text-black has-text-centered has-text-weight-normal is-size-5 is-family-primary'>
+                It looks like you are a B.S. Major
+        </div>
+        <hr>
+        <div class='level'>
+            <div id='left' class='level-left'>
+                <div class='has-text-weight-normal is-family-primary has-text-black is-size-4' style='padding: 10px'>
+                    Here are the Major Requirements
+                    <div class='has-text-weight-normal is-family-primary has-text-black is-size-4' style='padding: 10px'>
+                            Here are the classes you have taken!
+                            <div id="classesTaken" class='has-text-weight-normal is-family-primary has-text-black is-size-6'>
+                                <button class='button' id='editClasses' type='button'>Edit</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div id='right' class='level-right'>
+                <div id="classesTaken" class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-6'>
+                    <div id="majorReqs">
+
+                    </div>
+                    <div id="Electives">
+
+                    </div>
+                    <div id="Additional">
+
+                    </div>
+                    <div id="GenEds">
+
+                    </div>                    
+                </div>
+            </div>
+        <div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./../../node_modules/axios/dist/axios.min.js"></script>
+    <script src="./../../javascript/majorTracker.js"></script>
+</body>
+</html>
