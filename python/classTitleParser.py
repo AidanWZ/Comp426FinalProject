@@ -1,4 +1,5 @@
 import re
+import os
 
 def find_all(a_str, sub):
     start = 0
@@ -9,7 +10,7 @@ def find_all(a_str, sub):
         start += len(sub) # use start += 1 to find overlapping matches
 
 
-file = open('temp2.txt', 'r')
+file = open('{}/class-files/text/catelog.txt'.format(os.getcwd()), 'r')
 text = file.read()
 result = list(find_all(text, "COMP"))
 

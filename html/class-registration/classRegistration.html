@@ -24,24 +24,35 @@
             </div>    
         </div>
         <div class="register-card">
-            <div class="register-card-title">
-                <h1>New User</h1>
-            </div>
-            <div class="advice">
-                <p>Type desired classes in the format: 'COMP426'</p>
-            </div>
-            <div class="register-content">
-                <div id='TextBoxesGroup'>
-                    <div id="TextBoxDiv1">
-                        <label>Class title</label>
+            <div class="left-pane">
+                <div class="register-card-title">
+                    <p><b>Klass Registration</b></p>
+                </div>
+                <div class="advice">
+                    <p>Type desired classes in the format: 'COMP426'</p>
+                </div>
+                <br>
+                <div class="register-content">
+                    <div id="class-input">
+                        <div class="class-title">
+                            Class Title:
+                        </div>
                         <input class="derp" type='textbox' id='textbox1' name='textbox1' value=''>
+                        <button class="button is-warning" type='button' id='removeButton'>Clear Field</button>
+                        <button class="button is-success" type='button' id='submitButton'>Submit class</button>
+                        <button class="button is-danger" type='button' id='cancelButton'>Cancel</button>
                     </div>
                 </div>
-                <button type='button' id='addButton'>Add another class +</button>
-                <button type='button' id='removeButton'>Remove a class -</button>
-                <button type='button' id='submitButton'>Submit classes</button>
-                <button type='button' id='cancelButton'>Cancel</button>
             </div>
+            <br>
+            <div class="right-pane">
+                <div class="class-title">
+
+                </div>
+                <div class="class-description">
+
+                </div>
+            </div>  
         </div>
     </div>
 

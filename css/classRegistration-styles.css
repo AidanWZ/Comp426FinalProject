@@ -27,18 +27,39 @@ li a:hover {
 }
 
 .register {
-  /* The image used */
   background-image: url("./../images/old-well4.jpg");
-
-  /* Full height */
   height: 100%; 
-
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-h1 {
-  
+/* .left-pane {
+  width: 50%;
+  float: left;
+  background-color:transparent;
 }
+
+.right-pane {
+  width: 50%;
+  float: right;
+  background-color:transparent;
+} */
+
+.register-card-title {
+  color: white;
+  font-size: 300%;
+}
+
+.advice {
+  color: white;
+  font-size: 200%;
+}
+.derp {
+  font-size: 100%;
+}
+.class-title {
+  color: white;
+  font: 500%;
+}
+

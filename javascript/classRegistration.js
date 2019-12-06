@@ -3,7 +3,7 @@ const pubRoot = new axios.create({
 });
 var counter = 2;
 
-$(document).ready(function(){
+$(document).ready(function() {
     $("#addButton").on("click", addButton);
     $("#removeButton").on("click", removeButton);
     $("#submitButton").on("click", submitClasses);
