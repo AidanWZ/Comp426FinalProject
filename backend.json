@@ -1,7 +1,7 @@
 "Portal":{
 
     "Login": {
-        "User-Username": "Password"
+        "Username": "Password"
         ...
     }
 

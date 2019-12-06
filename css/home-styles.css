@@ -1,0 +1,70 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #99badd;
+  position: sticky;
+}
+  
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: black;
+}
+
+.dashboard-item {
+    flex-basis: 350px;
+    background-color: #fff;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+    -webkit-transition: all .3s cubic-bezier(.25,.8,.25,1);
+    transition: all .3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+    color: #363636;
+}
+
+.dashboard-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+*, :after, :before {
+  box-sizing: inherit;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.home {
+  /* The image used */
+  background-image: url("./../images/old-well.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
