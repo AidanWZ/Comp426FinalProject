@@ -3,7 +3,7 @@ const pubRoot = new axios.create({
 });
 var counter = 2;
 
-$(document).ready(function(){
+$(document).ready(function() {
     $("#addButton").on("click", addButton);
     $("#removeButton").on("click", removeButton);
     $("#submitButton").on("click", submitClasses);
@@ -31,8 +31,10 @@ async function submitClasses() {
         classes.push(fields[i].value);
     }
     const username = localStorage.getItem("username");
-    const result = await pubRoot.post('/User-data/' + username + '/Taken/', {
-        data: classes
+    const result = await pubRoot.post('/User-data/' + username, {
+        data: {
+            Taken: classes
+        }
     })
     window.location.href = 'http://localhost:3001/html/home/home.html';
 }

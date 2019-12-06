@@ -1,0 +1,65 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #99badd;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: black;
+}
+
+.register {
+  background-image: url("./../images/old-well4.jpg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* .left-pane {
+  width: 50%;
+  float: left;
+  background-color:transparent;
+}
+
+.right-pane {
+  width: 50%;
+  float: right;
+  background-color:transparent;
+} */
+
+.register-card-title {
+  color: white;
+  font-size: 300%;
+}
+
+.advice {
+  color: white;
+  font-size: 200%;
+}
+.derp {
+  font-size: 100%;
+}
+.class-title {
+  color: white;
+  font: 500%;
+}
+

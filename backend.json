@@ -1,7 +1,7 @@
-"Portal":{
+"Portal": {
 
     "Login": {
-        "User-Username": "Password"
+        "Username": "Password"
         ...
     }
 
@@ -30,6 +30,7 @@
             ]
         }
     }
+
     "User-data": {
         "Username": {
             "Name": "string",

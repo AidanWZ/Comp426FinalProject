@@ -4,11 +4,15 @@ const pubRoot = new axios.create({
 $(document).ready(function(){
     $("#loginbutton").on("click", login);
     $("#createbutton").on("click", createAccount);
-    fixShit();
+    //fixShit();
 });
 async function fixShit() {
+    console.log("fixing");
     // const result = await pubRoot.delete();
-    // alert("fixed");
+    const result = await pubRoot.post('/Login/', {
+        data: {"aidanwz": "aidanwz@live.unc.edu"}
+    });
+    // const result = await pubRoot.get('/Login/' + username);
 }
 function login() {
     const username = document.getElementById("username").value;
