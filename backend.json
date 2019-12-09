@@ -6,13 +6,14 @@
     }
 
     "Departments": [
-        {
-            "Name": "string",
-            "Classes": [
-
-            ]
-        }
+        
     ]
+
+    "Classes" {
+        "Chem101": {
+
+        }
+    }
 
     "Requirements": {
         "Computer-science-ba":{
