@@ -206,7 +206,6 @@ async function rmpStuff() {
     }
     let teacher = "Ketan+Mayer-Patel";
     let schoolId = 1232;
-    let words = document.getElementById('rmpInput').value;
     let result = await axios({
         method: 'get',
         url: "https://www.ratemyprofessors.com/search.jsp?queryoption=HEADER&queryBy=teacherName&schoolName=The+University+of+North+Carolina+at+Chapel+Hill&schoolID=%s&query=%1232Ketan+Mayer-Patel",
