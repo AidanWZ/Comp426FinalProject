@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Class Registration</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+        <link rel="stylesheet" href="./../../css/classRegistration-styles.css" />
+</head>
+
+<body>
+    <div class="register">
+        <div class='navBar' style='padding: 10px; background-color: #99badd'>
+            <div class='has-text-weight-bold is-family-primary is-capitalized has-text-black is-size-2'>
+                <ul>
+                    <li id="home"><a href="./../home/home.html">Home</a></li>
+                    <li id="major-tracker"><a href="./../major-tracker/major-tracker.html">MajorTracker</a></li>
+                    <li id="class-registration"><a href="classRegistration.html">ClassRegistration</a></li>
+                    <li id="planner"><a href="./../planner/planner.html">Planner</a></li>
+                    <li id="logout" style="float:right"><a class="active" href="./../../index.html">Logout</a></li>
+                </ul>
+            </div>    
+        </div>
+        <br>
+        <div class="register-card">
+            <div class="left-pane">
+                <div class="register-card-title">
+                    <p><b>Klass Registration</b></p>
+                </div>
+                <div class="advice">
+                    <p><b>Type in all the classes that you have taken</b></p>
+                </div>
+                <br>
+                <div class="register-content">
+                    <div id="class-input">
+                        <div class="class-title">
+                            <b>Class Title:</b>
+                        </div>
+                            <form autocomplete="off" action="action_page.php">
+                                <div class="autocomplete" style="width:300px;">
+                                    <input id="myInput" type="text" name="myCountry" placeholder="COMP426">
+                                </div>
+                                <button class="button is-info" type="button" id="addButton">Add Class</button>
+                            </form>
+                        <br>
+                        <span><b>List of Classes</b></span>
+                        <div id="root" class="classList">
+                            None
+                        </div>
+                        <br>
+                        <button style="width: 150px;" class="button is-danger" type='button' id='removeButton'>Cancel</button>
+                        <button style="width: 150px;" class="button is-success" type='button' id='submitButton'>Submit class</button>
+                    </div>
+                </div>
+                <button id='rmpButton'>rmp</button>
+            </div>
+            <br>  
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./../../node_modules/axios/dist/axios.min.js"></script>
+    <script src="./../../javascript/classRegistration.js"></script>
+</body>
+</html>

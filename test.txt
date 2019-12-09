@@ -1,0 +1,757 @@
+Quiz 7
+During fermentation, yeast converts each _______ molecule into two molecules of _______ and two molecules of carbon dioxide.
+A. sugar; alcohol
+B. sugar; fat
+C. alcohol; sugar
+D. fat; alcohol
+
+Question 2 of 10
+Which of the following does not modify the concentration of alcohol in the blood?
+A. Gender differences in metabolism
+B. The presence of food in the stomach
+C. The dose of alcohol consumed
+D. A cold shower
+
+Question 3 of 10
+Which of the following best represents the enzymatic steps involved in alcohol metabolism?
+A. Alcohol → acetaldehyde dehydrogenase → acetaldehyde → alcohol dehydrogenase → acetic acid
+B. Alcohol → alcohol dehydrogenase → acetic acid → acetaldehyde dehydrogenase → acetaldehyde
+C. Alcohol → acetaldehyde dehydrogenase → acetic acid → alcohol dehydrogenase → acetaldehyde
+D. Alcohol → alcohol dehydrogenase → acetaldehyde → acetaldehyde dehydrogenase → acetic acid
+
+Question 4 of 10
+_______ tolerance to alcohol results from a(n) _______ of liver enzymes.
+A. Metabolic; induction
+B. Metabolic; reduction
+C. Pharmacodynamic; reduction
+D. Acute; induction
+
+Question 5 of 10
+Tolerance to alcohol includes
+A. neither metabolic nor pharmacodynamic tolerance.
+B. pharmacodynamic but not behavioral tolerance.
+C. metabolic and pharmacodynamic tolerance.
+D. metabolic but not pharmacodynamic tolerance.
+
+
+Question 6 of 10
+An intense withdrawal syndrome after long-term heavy drinking that includes irritability, convulsions, and hallucinations would be considered
+A. delirium tremens.
+B. a hangover.
+C. physical dependence.
+D. psychosis.
+
+Question 7 of 10
+During _______ an individual may behave quite normally but will have total amnesia for the events that occurred.
+A. Wernicke−Korsakoff syndrome
+B. delirium tremens
+C. a hangover
+D. a blackout
+
+Question 8 of 10
+Fatalities from acute alcohol ingestion occur because
+A. the respiratory centers in the brain stem shut down.
+B. of cardiac arrhythmias leading to heart failure.
+C. that much alcohol causes brain death.
+D. the heart becomes too sedated and stops beating.
+
+Question 9 of 10
+The memory disturbances seen in Wernicke-Korsakoff syndrome include
+A. total amnesia.
+B. a loss of memory for events in the distant past.
+C. a loss of short-term, immediate memory with retention of distant memories.
+D. little actual memory impairment.
+
+
+Quiz 16
+Most of the cell bodies that produce serotonin in the CNS are found in the
+ A. thalamus.
+ B. raphe nuclei.
+ C. limbic system.
+ D. cerebellum.
+
+Question 2 of 10
+The fibers of serotonergic neurons are found
+ A. mainly in the midbrain, hypothalamus, and thalamus.
+ B. in virtually all forebrain areas.
+ C. mainly in the cerebellum and spinal cord.
+ D. mainly in the midbrain, pons, and medulla.
+
+Question 3 of 10
+All serotonin receptors are _______ except for the _______ receptor, which is _______.
+ A. metabotropic; 5-HT5B; ionotropic
+ B. metabotropic; 5-HT3; ionotropic
+ C. ionotropic; 5-HT1C; metabotropic
+ D. ionotropic; 5-HT2C; metabotropic
+
+Question 4 of 10
+Drugs that act as agonists at 5-HT2A receptors produce a characteristic “head-twitch” response in rodents and _______ in humans.
+ A. Parkinsonian symptoms
+ B. unwanted motor responses
+ C. antischizophrenic effects
+ D. hallucinations
+
+Question 5 of 10
+Later generation drugs used to treat schizophrenia, such as clozapine and risperidone, block/activate _______ receptors and produce _______ motor side effects.
+ A. both D2 and 5-HT2A; severe
+ B. D2; severe
+ C. 5-HT2A; fewer
+ D. 5-HT2A; severe
+
+
+Question 6 of 10
+
+Anti-migraine drugs known as triptans act as _______ and cause _______ of blood vessels.
+ A. 5-HT3 antagonists; dilation
+ B. 5-HT1B/1D antagonists; constriction
+ C. 5HT1A agonists; constriction
+ D. 5-HT1B/1D agonists; constriction
+
+Question 7 of 10
+Which statement regarding 5-HT3 receptors is false?
+ A. Ondansetron, granisetron, and palonosetron are all 5-HT3 receptor antagonists.
+ B. Drugs that block this receptor subtype are used to treat nausea in cancer chemotherapy patients.
+ C. Some of them are located on peripheral terminals of the vagus nerve.
+ D. Activation of these receptors inhibits the vomiting center in the brainstem.
+
+Question 8 of 10
+Evidence supporting a link between low levels of 5-HT and/or receptor activation and increased aggression, or high levels of 5-HT and/or receptor activation and decreased aggression, comes from all of the following studies except for those
+ A. using SSRIs to increase extracellular 5-HT levels.
+ B. correlating 5-HIAA concentration in the cerebrospinal fluid and measures of aggressive behavior.
+ C. examining inhibition of tryptophan hydroxylase.
+ D. measuring 5-HT release during play of violent video games.
+
+Question 9 of 10
+Which statement regarding serotonin and anxiety is false?
+ A. The 5-HT2A/2C receptor agonist mCPP is an effective antianxiety medication.
+ B. Buspirone is an effective antianxiety medication and a partial agonist at 5-HT1A receptors.
+ C. Knockout mice lacking 5-HT1A receptors show increased anxiety on the elevated zero maze.
+ D. Knockout mice lacking 5-HT2A receptors show decreased anxiety-like behaviors.
+
+
+
+
+Quiz 29
+Which statement regarding the glucocorticoid hypothesis of depression is false?
+ A. High cortisol levels cause loss of cells as well as reduced neurogenesis in the hippocampus.
+ B. The amygdala normally inhibits the hypothalamic–pituitary–adrenal axis, whereas the hippocampus activates it.
+ C. ECT and antidepressant drugs may exert some of their clinical benefits by decreasing CRF.
+ D. Behavior characteristic of depression can be elicited in animals by administration of CRF.
+
+Question 2 of 10
+The neurotrophic hypothesis of depression is supported by all of the following except
+ A. acute antidepressant treatment protects neurons by increasing BDNF.
+ B. chronic stress decreases hippocampal brain-derived neurotrophic factor (BDNF).
+ C. chronic antidepressant treatment increases BDNF in both humans and animals.
+ D. BDNF is enhanced by upregulation in the cAMP cascade, as occurs with treatments for depression.
+
+Question 3 of 10
+Which of the following is/are not primarily used for treating major depression?
+ A. Atypical antidepressants
+ B. Monoamine oxidase inhibitors (MAO-Is)
+ C. Lithium therapy
+ D. Selective serotonin reuptake inhibitors (SSRIs)
+
+Question 4 of 10
+Which statement concerning the use of antidepressant medication in general is true?
+ A. The therapeutic effects of antidepressants involve changes in the brain that can take up to several weeks to develop.
+ B. Placebo-controlled studies show that antidepressant medications are effective in about 80% of the people that use them for depression.
+ C. Antidepressant drugs have predictable outcomes and side effects that make it relatively easy for a psychiatrist to choose a medication for a given patient.
+ D. The maintenance period of drug treatment should be no longer than 4 to 5 months.
+
+Question 5 of 10
+What effect of MAOIs at the synapse is correlated with their therapeutic effectiveness?
+ A. Postsynaptic changes occur in second-messenger systems, up-regulating cAMP.
+ B. The synapse adapts by increasing receptors for the amine transmitters.
+ C. The normal amount of transmitter in the presynaptic terminal is properly regulated by the drug, which acts as an enzyme.
+ D. The enzyme MAO is inhibited, elevating the amount of transmitters available for release.
+
+Question 6 of 10
+All of the following are foods that should be avoided by people taking MAOIs except
+ A. aged cheese.
+ B. wine.
+ C. eggs.
+ D. yeasty breads.
+
+Question 7 of 10
+What is the major advantage of the second-generation antidepressants over the MAOIs and the TCAs?
+ A. They are less selective in their action; hence they can be used for a number of conditions.
+ B. They are more effective in treating depression.
+ C. They produce different and less harmful side effects than the older medications.
+ D. They work faster than the older classes of drugs.
+
+Question 8 of 10
+Which statement about serotonin syndrome is false?
+ A. It is characterized by agitation and disorientation.
+ B. While frightening, the syndrome is not life-threatening.
+ C. It can occur when SSRIs are combined with other serotonin agonists.
+ D. Symptoms include exaggerated autonomic nervous system activity.
+
+Question 9 of 10
+Which statement regarding intravenous ketamine as a treatment for depression is false?
+ A. In addition to blocking NMDA type glutamate receptors, it enhances AMPA receptor response to glutamate.
+ B. The dose required to reduce depression symptoms is much higher than that needed for anesthesia.
+ C. Its effects typically last 1–3 weeks.
+ D. It reduces symptoms in 65–70% of patients who are resistant to other treatments.
+
+Quiz 27
+
+Question 1 of 10
+
+Generalized anxiety disorder (GAD)
+
+ A. is genetically determined, as twin studies strongly indicate.
+ B. will lead to agoraphobia if untreated.
+ C. starts in the teens or twenties and persists throughout life.
+ D. is one of the least common anxiety disorders.
+
+
+Answer Key:C
+
+
+
+
+Question 2 of 10
+
+During an induced panic attack, an increase in the physiological signs of panic could be caused by _______, and increased activity of the _______ would make the person more aware of those sensations.
+
+ A. increased activity of the insula; prefrontal cortex
+ B. increased activity of the hippocampus; amygdala
+ C. decreased activity of the prefrontal cortex; sympathetic nervous system
+ D. increased activity of the amygdala; insula
+
+
+Answer Key:D
+
+
+
+
+Question 3 of 10
+
+Which of the following is not a reliable symptom or characteristic of PTSD?
+
+ A. Numbing of emotional responses
+ B. High cortisol levels
+ C. High incidence of substance abuse
+ D. Sleep disturbances
+
+
+Answer Key:B
+
+
+
+
+Question 4 of 10
+
+The _______ is believed to have a central role in the neurobiology associated with the characteristic repetitive and ritualistic thoughts associated with OCD.
+
+ A. substantia nigra
+ B. primary motor cortex
+ C. hippocampus
+ D. caudate nucleus
+
+
+Answer Key:D
+
+
+
+
+Question 5 of 10
+
+Anxiolytic drugs do not
+
+ A. include alcohol which has a very unsafe therapeutic index.
+ B. typically cause their effects on the CNS by increasing the transmitter dopamine.
+ C. produce relaxation along with drowsiness and poor motor coordination.
+ D. reduce seizures.
+
+
+Answer Key:B
+
+
+
+
+Question 6 of 10
+
+Which of the following is not a way that benzodiazepines affect GABA at the synapse?
+
+ A. They cause an IPSP.
+ B. They result in a local hyperpolarization.
+ C. They act as GABA antagonists and produce inhibitory effects.
+ D. They cause the chloride ion channel to open more frequently.
+
+
+Answer Key:C
+
+
+
+
+Question 7 of 10
+
+Tolerance develops to the _______ effects of barbiturates, but not to the _______ effects.
+
+ A. sedative; respiratory-depressant
+ B. reinforcing; sedative
+ C. muscle relaxant; mood
+ D. respiratory-depressant; hypnotic
+
+
+Answer Key:A
+
+
+
+
+Question 8 of 10
+
+BuSpar or buspirone has all of the following effects except
+
+ A. it is a partial agonist at the benzodiazepine receptor.
+ B. it is unlikely to be abused as it may cause dysphoria.
+ C. it is more effective at reducing the cognitive aspects of worry than the physical components of anxiety.
+ D. it does not cause sedation or confusion.
+
+
+Answer Key:A
+
+
+
+
+Question 9 of 10
+
+BuSpar’s therapeutic effects are related to its actions on _______ receptors.
+
+ A. 5-HT1A
+ B. GABAA
+ C. both GABAA and GABAB
+ D. 5-HT2A
+
+
+Answer Key:A
+
+
+
+
+Question 10 of 10
+
+One significant problem with using antidepressants to relieve anxiety is that antidepressants
+
+ A. like SSRIs can take 4–6 weeks to work.
+ B. do not work on anxiety.
+ C. like barbiturates do not relieve anxiety.
+ D. like SSRIs have more significant side effect profiles than all other anxiolytic drugs.
+
+Quiz 28
+Answer Key:A
+Question 1 of 10
+
+All of the following are symptoms of major depression except
+
+ A. agitation.
+ B. dulled sense of pain.
+ C. insomnia.
+ D. loss of appetite.
+
+
+Answer Key:B
+
+
+
+
+Question 2 of 10
+
+Depression
+
+ A. is most likely to recur following a period of stress.
+ B. affects approximately 15% to 20% of the population at any given time.
+ C. will not improve on its own; therapy is required.
+ D. affects men and women equally.
+
+
+Answer Key:B
+
+
+
+
+Question 3 of 10
+
+Which of the following is not a symptom of mania?
+
+ A. Decrease in goal-directed activity
+ B. Distractability
+ C. Flight of ideas
+ D. Elation
+
+
+Answer Key:A
+
+
+
+
+Question 4 of 10
+
+Which statement about the role of heredity in the affective disorders is true?
+
+ A. Linkage studies attempt to study the incidence of a disorder in an extended family.
+ B. Twin studies show that the monozygotic-dizygotic twin difference in concordance rates is greater for severe depression than for bipolar disorder.
+ C. No single dominant gene for these disorders has yet been identified.
+ D. Adoption studies provide the strongest evidence for a genetic basis to the affective disorders.
+
+
+Answer Key:C
+
+
+
+
+Question 5 of 10
+
+Researchers know that depressed individuals have an abnormal stress response involving the HPA axis because these individuals have all of the following except
+
+ A. more CRF cells evident in postmortem hypothalamic tissue.
+ B. higher CRF levels in cerebrospinal fluid (CSF).
+ C. elevated levels of cortisol.
+ D. shrunken pituitary and adrenal glands.
+
+
+Answer Key:D
+
+
+
+
+Question 6 of 10
+
+What is a dexamethasone challenge?
+
+ A. Depressed patients are given a glucocorticoid blocker to regulate an out-of-control system.
+ B. Depressed individuals are given a synthetic glucocorticoid to see if it shuts the HPA axis down.
+ C. Depressed individuals are given a form of ACTH to shut the HPA axis down and allow it time for recovery from stress over-responding.
+ D. Depressed patients are given a synthetic CRF to try to “jump start” the HPA axis.
+
+
+Answer Key:B
+
+
+
+
+Question 7 of 10
+
+Which of the following is not a sleep abnormality experienced by depressed individuals?
+
+ A. Rapid sleep onset
+ B. Significant decrease in stages 3 and 4 slow-wave sleep
+ C. Earlier onset of REM sleep
+ D. Increased REM in the first third of the night
+
+
+Answer Key:A
+
+
+
+
+Question 8 of 10
+
+Recently developed models of mania include _______ and the creation of mutant mice targeting genes involved in _______.
+
+ A. chronic mild stress; lithium sensitivity
+ B. sleep deprivation; serotonin synthesis
+ C. sleep deprivation; the circadian clock
+ D. maternal separation; lithium resistance
+
+
+Answer Key:C
+
+
+
+
+Question 9 of 10
+
+The monoamine hypothesis is supported by all of the following findings except
+
+ A. people with depression have extraordinarily high levels of MHPG and 5-HIAA in their urine, blood, and CSF.
+ B. MAOIs reverse symptoms of depression.
+ C. TCAs reverse symptoms of depression.
+ D. the drug reserpine depletes vesicles of monoamine transmitters and causes depression.
+
+
+Answer Key:A
+
+
+
+
+Question 10 of 10
+
+Which statement about new research into biochemical models for mood disorders is false?
+
+ A. The monoamine hypothesis needs to be updated with information that explains the slow onset of the clinical effects of the drugs.
+ B. Animal models are no longer useful in the search for modern biochemical models for human conditions.
+ C. New models will have to consider multiple neurotransmitter systems and how they interact.
+ D. PET scans and MRI can be used to discriminate between people with and without mood disorders in order to contribute to new models.
+
+
+Answer Key:B
+
+
+
+
+
+
+
+Quiz 32
+Two of the most frequent characteristics associated with Parkinson’s disease include _______ and _______.
+ A. difficulty initiating movement; slowness of movement
+ B. unwanted motor activity; dementia
+ C. resting tremor; urge to move certain body parts
+ D. pill-rolling tremors; retropulsion
+
+Question 2 of 10
+Which of the following is the correct order of degeneration in Parkinson’s disease?
+ A. Motor nucleus of the vagus → raphe nucleus and locus coeruleus → substantia nigra → temporal mesocortex → temporal neocortex
+ B. Raphe nucleus and locus coeruleus → motor nucleus of the vagus → temporal mesocortex → temporal neocortex → substantia nigra
+ C. None of the above; there is no typical order.
+ D. Motor nucleus of the vagus → substantia nigra → raphe nucleus and locus coeruleus → temporal neocortex → temporal mesocortex
+
+Question 3 of 10
+The major consequence of degeneration of substantia nigra cells is a decrease in _______ input into the striatum, which results in less _______ of the globus pallidus and greater tonic inhibition of the _______, reducing _______ input to the cortex.
+ A. NMDA; excitation; thalamus; excitatory
+ B. dopamine; inhibition; thalamus; excitatory
+ C. acetylcholine; excitation; caudate/putamen; inhibitory
+ D. dopamine; inhibition; subthalamic nucleus; inhibitory
+
+Question 4 of 10
+
+Protein aggregation is an important component of neuronal degeneration in PD, with _______, composed of _______, formed in the affected cells.
+ A. neurofibrillary tangles; Lewy bodies
+ B. Lewy bodies; α-synuclein
+ C. plaques; tau proteins
+ D. proteosomes; ubiquitin
+
+
+Question 5 of 10
+L-DOPA increases dopamine activity by _______, while the drug selegiline (Eldepryl) does so by _______. Pramipexole (Mirapex) does so by _______.
+ A. increasing synthesis; inhibiting metabolism; acting on DA receptors
+ B. increasing synthesis; acting on DA receptors; inhibiting reuptake
+ C. increasing DA cell firing; increasing synthesis; inhibiting reuptake
+ D. acting on DA receptors; inhibiting reuptake; inhibiting metabolism
+
+Question 6 of 10
+In addition to memory problems, a person afflicted with Alzheimer’s might exhibit all of the following except for
+ A. a lack of enjoyment of previously pleasurable activities.
+ B. impulse control issues and compulsive behaviors.
+ C. difficulty driving.
+ D. difficulty swallowing.
+
+Question 7 of 10
+The primary cellular abnormalities in AD are _______ and _______. These abnormalities are seen largely in _______ cortex.
+ A. amyloid plaques; Aβ42; prefrontal
+ B. neurofibrillary tangles; amyloid plaques; frontotemporal association
+ C. amyloid precursor protein; beta-amyloid; prefrontal
+ D. amyloid precursor protein; neurofibrillary tangles; frontoparietal association
+
+Question 8 of 10
+_______ neurons are particularly susceptible to neurofibrillary tangles, which are primarily made of _______ proteins.
+ A. Pyramidal; tau
+ B. Polygonal; microtubule
+ C. Prefrontal cortex; ubiquitin
+ D. Cholinergic; Aβ
+
+Question 9 of 10
+The typical pattern of tangles in Alzheimer’s disease follows which pattern?
+ A. Neocortex → entorhinal cortex → hippocampus
+ B. None of the above; degeneration occurs primarily in cholinergic and monoaminergic systems, not brain regions.
+ C. Basal forebrain → entorhinal cortex → hippocampus → neocortex
+ D. Entorhinal cortex → hippocampus → neocortex
+
+Question 10 of 10
+Multiple drugs that act as _______ are currently in use for the treatment of AD.
+ A. NMDA receptor antagonists
+ B. acetylcholine receptor agonists
+ C. cholinesterase inhibitors
+ D. NMDA receptor agonists
+
+Quiz 30
+Question 1 of 10
+Psychoses are characterized by all of the following except
+ A. problems with intellectual functioning.
+ B. savant-like increases in intelligence.
+ C. severe distortions of reality.
+ D. affective disturbances.
+ 
+Answer Key:B
+
+Question 2 of 10
+Concerning the incidence and severity of schizophrenia,
+ A. the disorder is considered to be chronic and incurable.
+ B. approximately 5% of the general population will receive a diagnosis of schizophrenia at some point in their lifetimes.
+ C. although treatment is available, about 50% of people with the disorder spend a large part of their lives in mental hospitals.
+ D. the incidence of the disorder is highest among young women in their late teens and early twenties.
+
+Answer Key:A
+
+Question 3 of 10
+Which statement regarding the diagnosis of schizophrenia is false?
+ A. Clinicians do not agree on whether it is a single disorder or a group of disorders.
+ B. The severity of the disorder and unusual symptoms make diagnosis straightforward.
+ C. Diagnosis is complicated because symptoms of the disorder change over time.
+ D. There are several subtypes of schizophrenia recognized by DSM-IV, making the task more complex.
+
+Answer Key:B
+
+Question 4 of 10
+According to the positive/negative symptom classification scheme for schizophrenia,
+ A. people with positive symptoms have a poor outcome as they do not respond well to medications.
+ B. positive symptoms are made worse by drugs that increase dopamine.
+ C. people with negative symptoms tend to develop their problems in adulthood.
+ D. delusions and hallucinations are examples of negative symptoms.
+
+Answer Key:B
+
+Question 5 of 10
+The symptoms of schizophrenia that tend to be more difficult to treat are
+ A. the negative symptoms and the cognitive symptoms.
+ B. the positive and the negative symptoms.
+ C. the cognitive symptoms and the positive symptoms.
+ D. the positive symptoms.
+
+Answer Key:A
+
+Question 6 of 10
+Which of the following are not structural changes observed in the brains of people with schizophrenia?
+ A. Disorganized arrangement of hippocampal cells
+ B. Shrinkage of the ventricles
+ C. Reduced volume of the temporal lobe and limbic structures
+ D. Atrophy of selected cortical layers
+
+Answer Key:B
+
+Question 7 of 10
+Molecular genetic research
+ A. has moved forward on the assumption that schizophrenia involves multiple genes located at different loci.
+ B. has identified potential “schizophrenia genes” on chromosomes 6, 8, 13, and 22.
+ C. uses either linkage studies or considers candidate genes in its search for the genetic basis of schizophrenia.
+ D. All of the above
+
+Answer Key:D
+
+Question 8 of 10
+The DISC1 gene codes for proteins _______ and polymorphisms in this gene are associated with _______.
+ A. found in dendritic spines; enlarged ventricles
+ B. involved in intracellular transport and axon elongation; motor disturbances
+ C. involved in neurogenesis and neuronal migration; impairments in performance on the WCST
+ D. involved in monoamine synthesis; impairments in working memory
+
+Answer Key:C
+
+Question 9 of 10
+Which of the following is not an example of a prenatal or perinatal complication that is associated with schizophrenia?
+ A. Exposure to viral infection during the second trimester
+ B. Oxygen deprivation during birth
+ C. Being delivered by Caesarean section
+ D. Severe malnutrition
+
+Answer Key:C
+
+Question 10 of 10
+Studies investigating the neonatal ventral hippocampal lesion model show that lesioned rats exhibit _______ earlier and _______ later in development, and that _______ potentiates behavioral and biological outcomes.
+ A. negative-like symptoms; enhanced stress responses; tetrodotoxin
+ B. positive-like symptoms; cognitive-like symptoms; antipsychotics
+ C. enhanced stress responses; impaired cognitive function; antipsychotics
+ D. negative-like symptoms; positive-like symptoms; early stress
+
+Answer Key:D
+
+Quiz 31
+
+Question 1 of 10
+What model of schizophrenia integrates the neurochemical data with the neuroanatomical findings concerning the disorder?
+ A. The glutamate-dopamine model
+ B. The neurodevelopmental model
+ C. The DA imbalance hypothesis
+ D. The dopamine hypothesis
+
+Answer Key:B
+
+Question 2 of 10
+Which of the following is not a part of the neurodevelopmental model of schizophrenia?
+ A. Hypofrontality results in a loss of inhibition of limbic structures, leading to positive symptoms.
+ B. Cognitive functions are most affected by the excess activity in the disinhibited mesolimbic pathway.
+ C. The developmental event that causes the initial damage could be one of many factors; it is not a specific causal agent.
+ D. Early damage to the mesocortical pathway results in the negative symptoms of schizophrenia.
+
+Answer Key:B
+
+Question 3 of 10
+What is evidence for a possible role for glutamate in schizophrenic symptoms
+ A. Increased levels of glutamate are found in postmortem studies of individuals with schizophrenia.
+ B. PCP or ketamine can worsen symptoms in individuals with schizophrenia.
+ C. Overactivity of glutamatergic NMDA receptors can help explain the cognitive symptoms.
+ D. Overactivity of glutamatergic NMDA receptors can help explain the negative symptoms.
+
+Answer Key:B
+
+Question 4 of 10
+The _______ receptor is most involved in the therapeutic effects of the traditional antipsychotics?
+ A. D2
+ B. D3
+ C. D1
+ D. D4/5
+
+Answer Key:A
+
+Question 5 of 10
+Which of the following is not a dopamine pathway affected by antipsychotic medications?
+ A. Nigrostriatal pathway
+ B. Pathway from hypothalamus to pituitary
+ C. Pathway from the thalamus to the cortex
+ D. Mesocortical pathway
+
+Answer Key:C
+
+Question 6 of 10
+Parkinsonian symptoms in schizophrenia include all of the following except
+ A. loss of facial expressions.
+ B. akathesia.
+ C. rigidity.
+ D. sedation.
+
+Answer Key:D
+
+Question 7 of 10
+Which statement about the abuse potential and dangers of antipsychotic medications is false?
+ A. Antipsychotics are rarely abused because they produce no euphoria.
+ B. Tolerance to the side effects of neuroleptics has not been observed, which helps to preserve their status as non-abused drugs.
+ C. Physical dependence and a withdrawal syndrome have not been observed with use of antipsychotic medications.
+ D. Neuroleptic medications have a high therapeutic index and are very unlikely to be involved in overdoses.
+
+
+Answer Key:B
+
+
+
+
+Question 8 of 10
+Abilify (aripiprazole) can simultaneously decrease DA receptor activation in some brain regions and increase it in others because it is classified as a(n)
+ A. partial agonist.
+ B. noncompetitive antagonist.
+ C. competitive antagonist.
+ D. inverse agonist.
+
+
+Answer Key:A
+
+Question 9 of 10
+Which statement regarding broad-spectrum antipsychotics is false?
+ A. They include the first discovered atypical neuroleptic, clozapine.
+ B. They block many receptor types, in addition to the D2 receptor.
+ C. They typically show high affinity for D1 receptors.
+ D. They work best with some combination of D2 and 5-HT2 receptor blockade.
+
+Answer Key:C
+
+Question 10 of 10
+To address the cognitive symptoms of schizophrenia, new pharmacological approaches are being developed that target specific aspects of various neurotransmitter systems, including
+ A. glycine, dopamine, and GABA.
+ B. serotonin and glutamate.
+ C. acetylcholine, dopamine, and glutamate.
+ D. GABA and glutamate.
+
+
+Answer Key:C

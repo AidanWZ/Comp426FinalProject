@@ -1,0 +1,7 @@
+To start browser-sync use:
+
+npx browser-sync start --port 3001 -sw in the Comp426FinalProject directory
+
+To use the backend use:
+
+npm run dev-live-reload

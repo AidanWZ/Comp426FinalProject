@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./../../node_modules/bulma/css/bulma.css" />
+        <title>Planner</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+        <link rel="stylesheet" href="./../../css/planner-styles.css" />
+</head>
+
+<body>
+    <div class="planner">
+        <div class='navBar' style='padding: 10px; background-color: #99badd'>
+            <div class='has-text-weight-bold is-family-primary is-capitalized has-text-black is-size-2'>
+                <ul>
+                    <li id="home"><a href="./../home/home.html">Home</a></li>
+                    <li id="major-tracker"><a href="./../major-tracker/major-tracker.html">MajorTracker</a></li>
+                    <li id="class-registration"><a href="./../class-registration/classRegistration.html">ClassRegistration</a></li>
+                    <li id="planner"><a href="planner.html">Planner</a></li>
+                    <li id="logout" style="float:right"><a class="active" href="./../../index.html">Logout</a></li>
+                </ul>
+            </div>    
+        </div>
+        <div id="left-pane">
+            <iframe src="https://www.coursicle.com/unc/"></iframe>
+        </div>
+        <div id="control-pane">
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./../../node_modules/axios/dist/axios.min.js"></script>
+    <script src="./../../javascript/home.js"></script>
+</body>
+</html>

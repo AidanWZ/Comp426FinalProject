@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./../../node_modules/bulma/css/bulma.css" />
+        <title>Major Tracker</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+        <link rel="stylesheet" href="./../../css/major-tracker-styles.css" />
+</head>
+
+<body>
+    <div class="major-tracker">
+        <div class='navBar' style='padding: 10px; background-color: #99badd'>
+            <div class='has-text-weight-bold is-family-primary is-capitalized has-text-black is-size-2'>
+                <ul>
+                    <li id="home"><a href="./../home/home.html">Home</a></li>
+                    <li id="major-tracker"><a href="major-tracker.html">MajorTracker</a></li>
+                    <li id="class-registration"><a href="./../class-registration/classRegistration.html">ClassRegistration</a></li>
+                    <li id="planner"><a href="./../planner/planner.html">Planner</a></li>
+                    <li id="logout" style="float:right"><a class="active" href="./../../index.html">Logout</a></li>
+                </ul>
+            </div>    
+        </div>
+        <br>
+        <div class='title has-text-weight-bold is-family-primary is-capitalized has-text-white is-size-1 has-background-color-white has-text-centered'>
+            <div id="name">
+            </div>
+            <div class='is-size-4' id="major">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class='column' id='left'>
+                <div class='has-text-weight-normal is-family-primary has-text-black is-size-4'>
+                    Here are the classes you have taken!
+                    <div id="classesTaken" class="is-lowercase">
+                    </div>
+                </div>
+            </div>
+            <div id='right' class='column'>
+                 <div class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4'>
+                    <p class="is-capitalized">Major Requirements:</p>
+                    <div id="majorReqs"></div>
+                    <br>
+                    <p class="is-capitalized">Electives:</p>
+                    <div id="Electives"></div>
+                    <br>
+                    <p class="is-capitalized">Additional:</p>
+                    <div id="Additional"></div>
+                    <br>
+                    <p class="is-capitalized">Gen Eds:</p>
+                    <div id="GenEds"></div>                        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./../../node_modules/axios/dist/axios.min.js"></script>
+    <script src="./../../javascript/majorTracker.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./../../node_modules/bulma/css/bulma.css" />
+        <title>Home</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+        <link rel="stylesheet" href="./../../css/home-styles.css" />
+</head>
+
+<body>
+    <div class="home">
+        <div class='navBar' style='padding: 10px; background-color: #99badd'>
+            <div class='has-text-weight-bold is-family-primary is-capitalized has-text-black is-size-2'>
+                <ul>
+                    <li id="home"><a href="home.html">Home</a></li>
+                    <li id="major-tracker"><a href="./../major-tracker/major-tracker.html">MajorTracker</a></li>
+                    <li id="class-registration"><a href="./../class-registration/classRegistration.html">ClassRegistration</a></li>
+                    <li id="planner"><a href="./../planner/planner.html">Planner</a></li>
+                    <li id="logout" style="float:right"><a class="active" href="./../../index.html">Logout</a></li>
+                </ul>
+            </div>    
+        </div>
+        
+        <section class="section">
+            <div class='container'>
+                <div class="content">
+                    <h1>KlassRoom Dashboard</h1>
+                    <div class="dashboard-grid">
+                        <a class="dashboard-item" href="home.html">
+                            <span class="dashboard-icon">
+
+                            </span>
+                            <h3>Home</h3>
+                            <p>The KlassRoom homepage</p>
+                        </a>
+                        <a class="dashboard-item" href="./../major-tracker/major-tracker.html">
+                            <span class="dashboard-icon">
+
+                            </span>
+                            <h3>MajorTracker</h3>
+                            <p>Track your major progress</p>
+                        </a>
+                        <a class="dashboard-item" href="./../class-registration/classRegistration.html">
+                            <span class="dashboard-icon">
+
+                            </span>
+                            <h3>KlassRoom Registration</h3>
+                            <p>Quick access to registration tools</p>
+                        </a>
+                        <a class="dashboard-item"  href="./../planner/planner.html">
+                            <span class="dashboard-icon">
+
+                            </span>
+                            <h3>Planner</h3>
+                            <p>Plan upcoming schedules</p>
+                        </a>
+                        <a class="dashboard-item" href="https://connectcarolina.unc.edu/" target="_blank">
+                            <span class="dashboard-icon">
+
+                            </span>
+                            <h3>ConnectCarolina Login</h3>
+                            <p>Go register!</p>
+                        </a>
+                        <a class="dashboard-item" href="https://catalog.unc.edu/courses/" target="_blank">
+                            <span class="dashboard-icon">
+
+                            </span>
+                            <h3>UNC Course lists</h3>
+                            <p>A dictionary of knowledge</p>
+                        </a>
+                        <a class="dashboard-item" href="https://www.coursicle.com/unc/" target="_blank">
+                            <span class="dashboard-icon">
+
+                            </span>
+                            <h3>UNC Coursicle</h3>
+                            <p>Lookup available courses</p>
+                        </a>
+                        <a class="dashboard-item" href="http://gradetoday.com/departments/3" target="_blank">
+                            <span class="dashboard-icon">
+
+                            </span>
+                            <h3>UNC Grade Distribution</h3>
+                            <p>check class difficulty</p>
+                        </a>
+                        <a class="dashboard-item" href="https://www.ratemyprofessors.com/campusRatings.jsp?sid=1232" target="_blank">
+                            <span class="dashboard-icon">
+
+                            </span>
+                            <h3>UNC ratemyprofessors</h3>
+                            <p>Check faculty ratings</p>
+                        </a>
+                    </div>
+                </div>
+            <div>
+        </section>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./../../node_modules/axios/dist/axios.min.js"></script>
+    <script src="./../../javascript/home.js"></script>
+</body>
+</html>
