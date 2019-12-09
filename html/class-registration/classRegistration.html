@@ -23,36 +23,40 @@
                 </ul>
             </div>    
         </div>
+        <br>
         <div class="register-card">
             <div class="left-pane">
                 <div class="register-card-title">
                     <p><b>Klass Registration</b></p>
                 </div>
                 <div class="advice">
-                    <p>Type desired classes in the format: 'COMP426'</p>
+                    <p><b>Type in all the classes that you have taken</b></p>
                 </div>
                 <br>
                 <div class="register-content">
                     <div id="class-input">
                         <div class="class-title">
-                            Class Title:
+                            <b>Class Title:</b>
                         </div>
-                        <input class="derp" type='textbox' id='textbox1' name='textbox1' value=''>
-                        <button class="button is-warning" type='button' id='removeButton'>Clear Field</button>
-                        <button class="button is-success" type='button' id='submitButton'>Submit class</button>
-                        <button class="button is-danger" type='button' id='cancelButton'>Cancel</button>
+                            <form autocomplete="off" action="action_page.php">
+                                <div class="autocomplete" style="width:300px;">
+                                    <input id="myInput" type="text" name="myCountry" placeholder="COMP426">
+                                </div>
+                                <button class="button is-info" type="button" id="addButton">Add Class</button>
+                            </form>
+                        <br>
+                        <span><b>List of Classes</b></span>
+                        <div id="root" class="classList">
+                            None
+                        </div>
+                        <br>
+                        <button style="width: 150px;" class="button is-danger" type='button' id='removeButton'>Cancel</button>
+                        <button style="width: 150px;" class="button is-success" type='button' id='submitButton'>Submit class</button>
                     </div>
                 </div>
+                <button id='rmpButton'>rmp</button>
             </div>
-            <br>
-            <div class="right-pane">
-                <div class="class-title">
-
-                </div>
-                <div class="class-description">
-
-                </div>
-            </div>  
+            <br>  
         </div>
     </div>
 
