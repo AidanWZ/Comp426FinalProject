@@ -1,5 +1,5 @@
-const pubRoot = new axios.create({
-    baseURL: "http://localhost:3000/public/Portal"
+const createRoot = new axios.create({
+    baseURL: "http://localhost:3000/account/create"
 });
 
 $(document).ready(function(){
@@ -95,7 +95,20 @@ async function submitRegistry() {
                         ${note}
                     </div>`;
     }
-    
+    let result1 = await createRoot.post({
+        "name": username,
+        "pass": password,
+        data: {
+            "major": major,
+        }
+    });
+    let result = await loginRoot.post({
+        "name": username,
+        "pass": password,
+    });
+    let token = result['jwt'];
+    localStorage.setItem("jwt", token);
+    window.location.assign('http://localhost:3001/html/add-classes-now/addClassesNow.html');
 }
 function cancelRegistry() {
     window.location.assign('http://localhost:3001/index.html');

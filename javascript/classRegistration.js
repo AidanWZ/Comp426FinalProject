@@ -1,8 +1,16 @@
-// import Axios from "axios";
+import Axios from "axios";
 
-// const pubRoot = new axios.create({
-//     baseURL: "http://localhost:3000/public/Portal"
-// });
+const pubRoot = new axios.create({
+    baseURL: "http://localhost:3000/public"
+});
+
+const userRoot = new axios.create({
+  baseURL: "http://localhost:3000/user"
+});
+
+const statusRoot = new axios.create({
+  baseURL: "http://localhost:3000/account/status"
+})
 // var counter = 1;
 
 
@@ -193,25 +201,23 @@ function addButton() {
     $(".delete").on("click", deleteClass);
 }
 
+async function getUser() {
+  let token = window.localStorage.getItem();
+  let result = statusRoot({
+    authorization: token["jwt"],
+  });
+  return result["user"]["name"];
+}
+
 function cancelClasses() {
-
+  window.location.replace('http://localhost:3001/html/home/home.html');
 }
-function submitClasses() {
-
-}
-
-async function rmpStuff() {
-    let headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"
-    }
-    let teacher = "Ketan+Mayer-Patel";
-    let schoolId = 1232;
-    let result = await axios({
-        method: 'get',
-        url: "https://www.ratemyprofessors.com/search.jsp?queryoption=HEADER&queryBy=teacherName&schoolName=The+University+of+North+Carolina+at+Chapel+Hill&schoolID=%s&query=%1232Ketan+Mayer-Patel",
-        // headers: headers, 
-    });
-    console.log(result);
+async function submitClasses() {
+  let username = getUser();
+  let result = await userRoot.post('/'+username, {
+    data: {"classes": classes}
+  });
+  window.location.replace('http://localhost:3001/html/home/home.html');
 }
 
 $(document).ready(function() {
@@ -221,9 +227,6 @@ $(document).ready(function() {
     $("#addButton").on("click", addButton);
     $(".delete").on("click", deleteClass);
     $("#cancelButton").on("click", cancelClasses);
-    $("#submitButton").on("click", submitClasses);
-
-    // $("#rmpButton").on("click", rmpStuff)
-    
+    $("#submitButton").on("click", submitClasses);    
 });
 
