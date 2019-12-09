@@ -1,17 +1,28 @@
+var fs = require('fs');
+
 const pubRoot = new axios.create({
     baseURL: "http://localhost:3000/public/Portal"
 });
 $(document).ready(function(){
     $("#loginbutton").on("click", login);
     $("#createbutton").on("click", createAccount);
-    //fixShit();
+    fixShit();
 });
 async function fixShit() {
-    console.log("fixing");
-    // const result = await pubRoot.delete();
-    const result = await pubRoot.post('/Login/', {
-        data: {"aidanwz": "aidanwz@live.unc.edu"}
-    });
+        console.log('test');
+        let headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"
+        }
+        let teacher = "Ketan+Mayer-Patel";
+        let schoolId = 1232;
+        //let words = document.getElementById('rmpInput').value;
+        let result = await axios({
+            method: 'get',
+            url: "https://www.ratemyprofessors.com/search.jsp?queryoption=HEADER&queryBy=teacherName&schoolName=The+University+of+North+Carolina+at+Chapel+Hill&schoolID=%s&query=%1232Ketan+Mayer-Patel",
+            // headers: headers, 
+        });
+        console.log(result);
+        fs.writeFileSync(process.cwd() + '/class-files/html/rmpTest.html', result, 'utf8');
     // const result = await pubRoot.get('/Login/' + username);
 }
 function login() {
