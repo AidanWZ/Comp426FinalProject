@@ -212,6 +212,7 @@ async function getUser() {
 function cancelClasses() {
   window.location.replace('http://localhost:3001/html/home/home.html');
 }
+
 async function submitClasses() {
   let username = getUser();
   let result = await userRoot.post('/'+username, {
