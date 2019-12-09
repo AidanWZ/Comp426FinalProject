@@ -23,41 +23,38 @@
                 </ul>
             </div>    
         </div>
-        <div class='title has-text-weight-bold is-family-primary is-capitalized has-text-black is-size-3 has-background-color-white has-text-left' style='margin-top: 10px; margin-left: 50px';>
-            Hi User
+        <br>
+        <div class='title has-text-weight-bold is-family-primary is-capitalized has-text-white is-size-1 has-background-color-white has-text-centered'>
+            <div id="name">
+            </div>
+            <div class='is-size-4' id="major">
+            </div>
         </div>
-        <div class='subtitle has-text-black has-text-left has-text-weight-normal is-size-5 is-family-primary; margin-left: 50px'>
-            It looks like you are a B.S. Major
-        </div>
-        <div class='level'>
-            <div id='left' class='level-left'>
-                <div class='has-text-weight-normal is-family-primary has-text-black is-size-4' style='padding: 10px'>
-                    Here are the Major Requirements
-                    <div class='has-text-weight-normal is-family-primary has-text-black is-size-4' style='padding: 10px'>
-                            Here are the classes you have taken!
-                            <div id="classesTaken" class='has-text-weight-normal is-family-primary has-text-black is-size-6'>
-                                <button class='button' id='editClasses' type='button'>Edit</button>
-                            </div>
+        <br>
+        <div class="row">
+            <div class='column' id='left'>
+                <div class='has-text-weight-normal is-family-primary has-text-black is-size-4'>
+                    Here are the classes you have taken!
+                    <div id="classesTaken" class="is-lowercase">
                     </div>
                 </div>
             </div>
-            <div id='right' class='level-right'>
-                <div id="classesTaken" class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-6'>
-                    <div id="majorReqs">
-
-                    </div>
-                    <div id="Electives">
-
-                    </div>
-                    <div id="Additional">
-
-                    </div>
-                    <div id="GenEds">
-
-                    </div>                    
+            <div id='right' class='column'>
+                 <div class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4'>
+                    <p class="is-capitalized">Major Requirements:</p>
+                    <div id="majorReqs"></div>
+                    <br>
+                    <p class="is-capitalized">Electives:</p>
+                    <div id="Electives"></div>
+                    <br>
+                    <p class="is-capitalized">Additional:</p>
+                    <div id="Additional"></div>
+                    <br>
+                    <p class="is-capitalized">Gen Eds:</p>
+                    <div id="GenEds"></div>                        
                 </div>
             </div>
-        <div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
