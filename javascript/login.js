@@ -1,6 +1,6 @@
-
 const loginRoot = new axios.create({
     baseURL: "http://localhost:3000/account/login"
+
 });
 $(document).ready(function(){
     $("#loginbutton").on("click", login);
