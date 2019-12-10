@@ -14,9 +14,21 @@ $(document).ready(function(){
 })
 
 async function submit() {
+    clearInfo();
     var classString = document.getElementById('myInput').value;
+    var deptString;
+    var depts = getDepts();
+    for (let a = 0; a < depts.length; a++) {
+        if (classString.substring(0,3) == depts[a]) {
+            deptString = classString.substring(0,3);
+        }
+        else if (classString.substring(0,4) == depts[a]) {
+            deptString = classString.substring(0,4);
+        }
+    }
+
     var classes = offeredClasses();
-    var allClasses = getAllClasses();
+    var catelogData = getCatelog([deptString, classString]);
     var isOffered = false;
     var index = -1;
     var classData;
@@ -30,32 +42,70 @@ async function submit() {
         }
     }
     if (isOffered) {
-        document.getElementById('name').innerHTML = ``;
-        document.getElementById('description').innerHTML = ``;
-        document.getElementById('catelog').innerHTML = ``;
-        document.getElementById('section').innerHTML = ``;
-        document.getElementById('classNum').innerHTML = ``;
-        document.getElementById('title').innerHTML = ``;
-        document.getElementById('component').innerHTML = ``;
-        document.getElementById('units').innerHTML = ``;
-        document.getElementById('bldg').innerHTML = ``;
-        document.getElementById('room').innerHTML = ``;
-        document.getElementById('days').innerHTML = ``;
-        document.getElementById('time').innerHTML = ``;
-        document.getElementById('seats').innerHTML = ``;
-        document.getElementById('waitlist').innerHTML = ``;
+        document.getElementById('name').innerHTML = classString;
+        document.getElementById('subtitle').innerHTML = catelogData.subtitle;
+        document.getElementById('description').innerHTML = catelogData.description;
+        document.getElementById('catelog').innerHTML = classData.catelogNum;
+        document.getElementById('section').innerHTML = classData.section;
+        document.getElementById('classNum').innerHTML = classData.classNum;
+        document.getElementById('component').innerHTML = classData.component;
+        document.getElementById('units').innerHTML = classData.units;
+        document.getElementById('bldg').innerHTML = classData.bldg;
+        document.getElementById('room').innerHTML = classData.room;
+        document.getElementById('days').innerHTML = classData.days;
+        document.getElementById('time').innerHTML = classData.time;
+        document.getElementById('seats').innerHTML = classData.seats;
+        document.getElementById('waitlist').innerHTML = classData.waitlist;
     }
     else {
-
+        document.getElementById('name').innerHTML = classString;
+        document.getElementById('subtitle').innerHTML = catelogData.subtitle;
+        document.getElementById('description').innerHTML = catelogData.description;
     }
 
 }
 function clear() {
     document.getElementById('myInput').value = '';
+    clearInfo()
 }
 
-async function getAllClasses() {
+function clearInfo() {
+    document.getElementById('name').innerHTML = "";
+    document.getElementById('subtitle').innerHTML = "";
+    document.getElementById('description').innerHTML = "";
+    document.getElementById('catelog').innerHTML = "";
+    document.getElementById('section').innerHTML = "";
+    document.getElementById('classNum').innerHTML = "";
+    document.getElementById('component').innerHTML = "";
+    document.getElementById('units').innerHTML = "";
+    document.getElementById('bldg').innerHTML = "";
+    document.getElementById('room').innerHTML = "";
+    document.getElementById('days').innerHTML = "";
+    document.getElementById('time').innerHTML = "";
+    document.getElementById('seats').innerHTML = "";
+    document.getElementById('waitlist').innerHTML = "";
+}
+
+async function getDepts() {
+    const classes = await axios ({
+        method: 'get',
+        url: 'http://localhost:3000/public/Portal/depts',
+    });
+    return classes.data.result;
+}
+
+async function getCatelog(layers) {
+    var path = 'http://localhost:3000/public/Portal/Catelog/';
+    for (let i = 0; i < layers.length-1; i++) {
+        path = path + layers[i] +  '/'
+    }
+    path = path + layers[layers.length-1];
     
+    const classes = await axios ({
+        method: 'get',
+        url: path,
+    });
+    return classes.data.result;
 }
 
 async function offeredClasses() {

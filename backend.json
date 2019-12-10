@@ -46,9 +46,9 @@
             }
         ],
 
-        "depts": [],
+        "depts": ["comp"],
 
-        "deptTitles": [],
+        "deptTitles": ["computer science"],
 
         "User-data": {
             "Username": {
@@ -64,6 +64,10 @@
                 },
                 "registered": false
             }
+        }
+
+        "Catelog": {
+            "aero": 
         }
     }
 }
