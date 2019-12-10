@@ -58,7 +58,7 @@ body, html {
 
 .home {
   /* The image used */
-  background-image: url("./../images/old-well.jpg");
+  background-image: url("./../images/old-well2.jpg");
 
   /* Full height */
   height: 100%; 
@@ -67,4 +67,9 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  color: white;
 }

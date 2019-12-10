@@ -11,44 +11,6 @@ const userRoot = new axios.create({
 const statusRoot = new axios.create({
   baseURL: "http://localhost:3000/account/status"
 })
-// var counter = 1;
-
-
-
-// function addButton() {
-//     const $root = ('#class-title');
-//     console.log('entering');
-//     // var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
-//     // newTextBoxDiv.after().html(`<p name="class${counter}" id="class${counter}">classkdfhslk</p>`);
-//     //console.log(document.getElementById('#textbox1').value);
-//     newTextBoxDiv = `<p>all thu classes</p>`;
-//     $root.append(newTextBoxDiv);
-//     counter++;
-// }
-// function removeButton() {
-//     if(counter==1){
-//         return false;
-//     }   
-//     counter--;
-//     $("#TextBoxDiv" + counter).remove();
-// }
-// async function submitClasses() {
-//     var fields = document.getElementsByClassName("derp")
-//     var classes = []
-//     for(let i = 0; i < fields.length; i++) {
-//         classes.push(fields[i].value);
-//     }
-//     const username = localStorage.getItem("username");
-//     const result = await pubRoot.post('/User-data/' + username, {
-//         data: {
-//             Taken: classes
-//         }
-//     })
-//     // window.location.href = 'http://localhost:3001/html/home/home.html';
-// }
-// function cancelClasses() {
-//     window.location.href = 'http://localhost:3001/html/home/home.html';
-// }
 
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
@@ -147,8 +109,20 @@ function autocomplete(inp, arr) {
   });
 }
 
-let countries = ["COMP110", "COMP401", "COMP410", "COMP411", "COMP426", "COMP431", "COMP455", "COMP535", "COMP550", "COMP585"];
+async function getClasses() {
+  const result3 = await axios ({
+    method: 'get',
+    url: 'http://localhost:3000/public/Portal/ClassTitles',
+  });
+  console.log(result3.data.result);
+  return result3.data.result;
+}
 let classes = [];
+//let Classes = getClasses();
+//console.log(Classes);
+let Classes = ["COMP110", "COMP401", "COMP410", "COMP411", "COMP426", "COMP431", "COMP455", "COMP535", "COMP550", "COMP585", "COMP410", "COMP411", "COMP426", "COMP431", "COMP455", "COMP535", "COMP850", "COMP885"];
+
+
 
 function renderClasses() {
     let classesHTML = ``;
@@ -199,6 +173,8 @@ function addButton() {
     document.getElementById('root').innerHTML = renderClasses();
     document.getElementById('myInput').value="";
     $(".delete").on("click", deleteClass);
+    $("#cancelButton").on("click", cancelClasses);
+
 }
 
 async function getUser(token) {
@@ -222,10 +198,10 @@ async function submitClasses() {
   axios.post('http://localhost:3000/user/classes/', {data: classes}, {headers: {authorization: 'Bearer ' + token}});
     
   // window.location.replace('http://localhost:3001/html/home/home.html');
-
+}
 
 $(document).ready(function() {
-    autocomplete(document.getElementById("myInput"), countries);
+    autocomplete(document.getElementById("myInput"), Classes);
     $root = $("#root");
 
     $("#addButton").on("click", addButton);

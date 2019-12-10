@@ -135,6 +135,8 @@ input[type=submit] {
   top: 100%;
   left: 0;
   right: 0;
+  overflow: auto;
+  max-height: 500px;
 }
 
 .autocomplete-items div {

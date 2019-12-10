@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Add Classes?</title>
+    <title>Add Classes?</title>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
-        <link rel="stylesheet" href="./../../css/addClassesNow-styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+    <link rel="stylesheet" href="./../../css/addClassesNow-styles.css" />
 </head>
 
 <body>
-    <div id="register">
+    <div class="register">
+        <div class='navBar' style='padding: 10px; background-color: #99badd'>
+            <div class='has-text-weight-bold is-family-primary is-capitalized has-text-black is-size-2'>
+                <ul>
+                    <li id="home"><a href="./../home/home.html">Home</a></li>
+                    <li id="major-tracker"><a href="./../major-tracker/major-tracker.html">MajorTracker</a></li>
+                    <li id="class-registration"><a href="classRegistration.html">ClassRegistration</a></li>
+                    <li id="planner"><a href="./../planner/planner.html">Planner</a></li>
+                    <li id="logout" style="float:right"><a class="active" href="./../../index.html">Logout</a></li>
+                </ul>
+            </div>    
+        </div>
+    </div>
+    <div id="buttons">
         <div class="yes">
-            <button type="button" id="yes">Yes let me add my classes</button>
+            <button class='button is-large is-success' type="button" id="yes">Yes let me add my classes</button>
         </div>
         <div class="no">
-            <button type="button" id="no">No I'll add them later</button>
+            <button class='button is-large is-danger' type="button" id="no">No I'll add them later</button>
         </div>
     </div>
 
