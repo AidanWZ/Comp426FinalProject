@@ -17,28 +17,37 @@ async function getUser(token) {
     return result.data.user.name;
 }
 
+async function getUser(token) {
+    const result = await axios ({
+      method: 'get',
+      url: 'http://localhost:3000/account/status',
+      headers: {
+        authorization: 'Bearer ' + token,
+      },
+    });
+    return result.data.user.name;
+}
+
 async function loadWorksheet() {
     let token = localStorage.getItem("jwt");
     const username = getUser(token);
     document.getElementById('name').innerHTML = `Hi ${username}`;
-
-
     const major = await axios ({
         method: 'get',
-        url: 'http://localhost:3000/user/'+username+'/major',
+        url: 'http://localhost:3000/user/major',
         headers: {
             authorization: 'Bearer ' + token,
           },
     });
-    let major = await userRoot.get('/'+username+'/major');
-
-
-
     document.getElementById('major').innerHTML = `It looks like you are a ${major} Major`;
-
-    // const userdata = await pubRoot.get('/User-data/' + username);
     //let classesTaken = ['COMP110', 'COMP401', 'COMP410', 'COMP411', 'COMP426'];
-    let classesTaken = await userRoot.get('/'+username+'/classes');
+    const classesTaken = await axios ({
+        method: 'get',
+        url: 'http://localhost:3000/user/classes',
+        headers: {
+            authorization: 'Bearer ' + token,
+        },
+    });
 
     //const requirements = await pubRoot.get('/Requirements/' + userdata.Major)
     let requirements = {

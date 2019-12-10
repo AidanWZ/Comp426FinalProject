@@ -18,14 +18,15 @@ async function submitRegistry() {
     const password = document.getElementById("psw").value;
     const confirm = document.getElementById("psw-repeat").value;
     const major = document.getElementById("major").value;
-    const email = (document.getElementById("email").value != "") ? document.getElementById("email").value : null;
+    const minor = (document.getElementById("minor").value != "") ? document.getElementById("minor").value : null;
 
     if (username != "" &&
         first != "" && 
         last != "" && 
         password != "" && 
         confirm != "" && 
-        major != "") {
+        major != "" &&
+        minor != "") {
             //const usernameExists = await pubRoot.get('/Login/');
             //console.log(usernameExists.data);
             usernameExists = false;
@@ -51,6 +52,7 @@ async function submitRegistry() {
                     });
                     let token = result.data.jwt;
                     axios.post('http://localhost:3000/user/major/', {data: major}, {headers: {authorization: 'Bearer ' + token}});
+                    axios.post('http://localhost:3000/user/minor/', {data: minor}, {headers: {authorization: 'Bearer ' + token}});
                     localStorage.setItem("jwt", token);
                     window.location.assign('http://localhost:3001/html/add-classes-now/addClassesNow.html');
                 }
