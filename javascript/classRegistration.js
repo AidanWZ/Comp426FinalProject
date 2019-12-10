@@ -1,4 +1,4 @@
-import Axios from "axios";
+//import Axios from "axios";
 
 const pubRoot = new axios.create({
     baseURL: "http://localhost:3000/public"
@@ -201,24 +201,28 @@ function addButton() {
     $(".delete").on("click", deleteClass);
 }
 
-async function getUser() {
-  let token = window.localStorage.getItem();
-  let result = statusRoot({
-    authorization: token["jwt"],
+async function getUser(token) {
+  const result = await axios ({
+    method: 'get',
+    url: 'http://localhost:3000/account/status',
+    headers: {
+      authorization: 'Bearer ' + token,
+    },
   });
-  return result["user"]["name"];
+  return result.data.user.name;
 }
 
 function cancelClasses() {
   window.location.replace('http://localhost:3001/html/home/home.html');
 }
+
 async function submitClasses() {
-  let username = getUser();
-  let result = await userRoot.post('/'+username, {
-    data: {"classes": classes}
-  });
-  window.location.replace('http://localhost:3001/html/home/home.html');
-}
+  let token = localStorage.getItem("jwt");
+  let username = getUser(token);
+  axios.post('http://localhost:3000/user/classes/', {data: classes}, {headers: {authorization: 'Bearer ' + token}});
+    
+  // window.location.replace('http://localhost:3001/html/home/home.html');
+
 
 $(document).ready(function() {
     autocomplete(document.getElementById("myInput"), countries);

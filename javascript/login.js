@@ -1,6 +1,5 @@
 const loginRoot = new axios.create({
     baseURL: "http://localhost:3000/account/login"
-
 });
 $(document).ready(function(){
     $("#loginbutton").on("click", login);
@@ -14,15 +13,24 @@ async function login() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     try {
-        let result = await loginRoot.post({
-            "name": username,
-            "pass": password,
+        const result = await axios ({
+            method: 'post',
+            url: 'http://localhost:3000/account/login',
+            data: {
+                'name': username,
+                'pass': password,
+            },
         });
-        let token = result['jwt'];
+        let token = result.data.jwt;
         localStorage.setItem("jwt", token);
         window.location.assign('http://localhost:3001/html/home/home.html');
     } catch (error) {
+<<<<<<< HEAD
+        document.getElementById('message').innerHTML='<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>';
+        //$message.html('<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>');
+=======
         document.getElementById('message').innerHTML = '<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>';
+>>>>>>> 8db27f74450d38b3bb11c861c78e314eb8fa3525
     }
 }
 
