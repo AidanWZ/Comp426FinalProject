@@ -2,6 +2,10 @@ const createRoot = new axios.create({
     baseURL: "http://localhost:3000/account/create"
 });
 
+const userRoot = new axios.create({
+    baseURL: "http://localhost:3000/user"
+});
+
 $(document).ready(function(){
     $("#signupbtn").on("click", submitRegistry);
     $("#cancelbtn").on("click", cancelRegistry);
@@ -22,34 +26,32 @@ async function submitRegistry() {
         password != "" && 
         confirm != "" && 
         major != "") {
-            const usernameExists = await pubRoot.get('/Login/');
-            console.log(usernameExists.data);
-            if (!usernameExists.data.result.includes(username)) {
+            //const usernameExists = await pubRoot.get('/Login/');
+            //console.log(usernameExists.data);
+            usernameExists = false;
+            //if (!usernameExists.data.result.includes(username)) {
+            if (!usernameExists) {
                 if (password == confirm) {
-                    const userData = {
-                        "First": name,
-                        "Last": last,
-                        "Username": username,
-                        "Major": major,
-                        "Taken": [],
-                        "Planned": [],
-                        "registered": true
-                    } 
-                    const result = await pubRoot.post('/Login/', {
-                        data: {username: password}
-                    });
-                    const result2 = await pubRoot.post('/User-data/', {
+                    const result1 = await axios ({
+                        method: 'post',
+                        url: 'http://localhost:3000/account/create',
                         data: {
-                            "Username": username,
-                            "First": username,
-                            "Last": username,
-                            "Major": username,
-                            "Taken": [],
-                            "Planned": [],
-                            "Registered": true,
-                        }
+                            'name': username,
+                            'pass': password,
+                        },
                     });
-                    localStorage.setItem("username", username);
+                    
+                    const result = await axios ({
+                        method: 'post',
+                        url: 'http://localhost:3000/account/login',
+                        data: {
+                            'name': username,
+                            'pass': password,
+                        },
+                    });
+                    let token = result.data.jwt;
+                    axios.post('http://localhost:3000/user/major/', {data: major}, {headers: {authorization: 'Bearer ' + token}});
+                    localStorage.setItem("jwt", token);
                     window.location.assign('http://localhost:3001/html/add-classes-now/addClassesNow.html');
                 }
                 else {
@@ -95,20 +97,6 @@ async function submitRegistry() {
                         ${note}
                     </div>`;
     }
-    let result1 = await createRoot.post({
-        "name": username,
-        "pass": password,
-        data: {
-            "major": major,
-        }
-    });
-    let result = await loginRoot.post({
-        "name": username,
-        "pass": password,
-    });
-    let token = result['jwt'];
-    localStorage.setItem("jwt", token);
-    window.location.assign('http://localhost:3001/html/add-classes-now/addClassesNow.html');
 }
 function cancelRegistry() {
     window.location.assign('http://localhost:3001/index.html');

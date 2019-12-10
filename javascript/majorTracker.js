@@ -6,18 +6,34 @@ const userRoot = new axios.create({
     baseURL: "http://localhost:3000/user"
 });
 
-async function getUser() {
-    let token = window.localStorage.getItem();
-    let result = statusRoot({
-      authorization: token["jwt"],
+async function getUser(token) {
+    const result = await axios ({
+      method: 'get',
+      url: 'http://localhost:3000/account/status',
+      headers: {
+        authorization: 'Bearer ' + token,
+      },
     });
-    return result["user"]["name"];
+    return result.data.user.name;
 }
 
 async function loadWorksheet() {
-    const username = getUser();
+    let token = localStorage.getItem("jwt");
+    const username = getUser(token);
     document.getElementById('name').innerHTML = `Hi ${username}`;
+
+
+    const major = await axios ({
+        method: 'get',
+        url: 'http://localhost:3000/user/'+username+'/major',
+        headers: {
+            authorization: 'Bearer ' + token,
+          },
+    });
     let major = await userRoot.get('/'+username+'/major');
+
+
+
     document.getElementById('major').innerHTML = `It looks like you are a ${major} Major`;
 
     // const userdata = await pubRoot.get('/User-data/' + username);
