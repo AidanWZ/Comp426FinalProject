@@ -222,7 +222,7 @@ async function submitClasses() {
   axios.post('http://localhost:3000/user/classes/', {data: classes}, {headers: {authorization: 'Bearer ' + token}});
     
   // window.location.replace('http://localhost:3001/html/home/home.html');
-}
+
 
 $(document).ready(function() {
     autocomplete(document.getElementById("myInput"), countries);
