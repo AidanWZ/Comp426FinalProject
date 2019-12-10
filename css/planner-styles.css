@@ -23,6 +23,15 @@ li a:hover {
   color: white;
 }
 
+h3 {
+  font-size: x-large;
+  color: #d4d4d4;
+}
+
+.info {
+  font-size: 30px;
+}
+
 .active {
   background-color: black;
 }
@@ -40,7 +49,11 @@ li a:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
+}
+
+.container {
+  margin-left: 3%;
+  margin-top: 3%;
 }
 
 .register-card {
@@ -62,7 +75,8 @@ li a:hover {
 .right-pane {
   width: 60%;
   float: right;
-  background-color:transparent;
+  background-color: #4da6ff;
+  opacity: 70%;
 }
 
 .register-card-title {
