@@ -23,27 +23,65 @@
                 </ul>
             </div>    
         </div>
-        <div class="row">
-                <div class='column' id='left'>
-                    <div class='has-text-weight-normal is-family-primary has-text-black is-size-4'>
-                        Here are the classes you have taken!
-                        <div id="classesTaken" class="is-lowercase">
+        <div class="register-card-title">
+                <p><b>Klass Planner</b></p>
+        </div>
+        <div class="panes">
+            <div class="left-pane">
+                <div class="advice">
+                    <p><b>Type a class you are interested in</b></p>
+                </div>
+                <br>
+                <div class="register-content">
+                    <div id="class-input">
+                        <div class="class-title">
+                            <b>Class Title:</b>
                         </div>
+                            <form autocomplete="off" action="action_page.php">
+                                <div class="autocomplete" style="width:300px;">
+                                    <input id="myInput" type="text" name="myCountry" placeholder="COMP426">
+                                </div>
+                            </form>
+                        <br>
+                        <button style="width: 150px;" class="button is-danger" type='button' id='clear'>Clear</button>
+                        <button style="width: 150px;" class="button is-success" type='button' id='submit'>Info</button>
                     </div>
                 </div>
-                <div id='right' class='column'>
-                     <div class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4'>
-                        <p class="is-capitalized">Major Requirements:</p>
-                        <div id="majorReqs"></div>
-                        <br>
-                        <p class="is-capitalized">Electives:</p>
-                        <div id="Electives"></div>
-                        <br>
-                        <p class="is-capitalized">Additional:</p>
-                        <div id="Additional"></div>
-                        <br>
-                        <p class="is-capitalized">Gen Eds:</p>
-                        <div id="GenEds"></div>                        
+            </div>
+            <div class="divider"></div>
+            <div class="right-pane">
+                <title id="bigtitle">
+                    Klass Information
+                </title>
+                <div id="info-card">
+                    <div id="class-title">
+                        <span id="name"></span>
+                    </div>
+                    <div id="class-description">
+                        <p id="description">
+
+                        </p>
+                    </div>
+                    <div id="class-specs">
+                        <span id="subject"></span>
+                        <span id="catelog"></span>
+                        <span id="section"></span>
+                        <span id="classNum"></span>
+                        <span id="title"></span>
+                        <span id="component"></span>
+                        <span id="units"></span>
+                        <span id="bldg"></span>
+                        <span id="room"></span>
+                        <span id="days"></span>
+                        <span id="time"></span>
+                        <span id="seats"></span>
+                        <span id="waitlist"></span>
+                    </div>
+                    <div id="class-department">
+                
+                    </div>
+                    <div class="class-info">
+                        
                     </div>
                 </div>
             </div>
