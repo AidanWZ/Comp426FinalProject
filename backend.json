@@ -1,51 +1,69 @@
-"Portal": {
+{
+    "Portal": {
 
-    "Login": {
-        "Username": "Password"
-        ...
-    }
+        "Login": {
+            "Username": "Password"
+        },
 
-    "Departments": [
-        
-    ]
+        "majorTitles": [
+            
+        ],
 
-    "Classes" {
-        "Chem101": {
+        "majorNames": [
+            
+        ],
 
-        }
-    }
+        "minorNames": [
+            
+        ],
 
-    "Requirements": {
-        "Computer-science-ba":{
-            "MajorReqs": [
+        "requirements": {
+            "computer-science-major-ba":{
+                "reqs": [],
+                "hours": "string"
+            }
+        },
 
-            ],
-            "Electives": [
+        "ClassTitles": [],
 
-            ],
-            "Additonal": [
+        "Teachers": [],
 
-            ],
-            "GenEds": [
+        "ClassOfferings": [
+            {
+                "subject": "",
+                "catelogNum": "",
+                "section": "",
+                "classNum": "",
+                "title": "",
+                "component": "",
+                "units": "",
+                "bldg": "",
+                "room": "",
+                "days": "",
+                "time": "",
+                "seats": "",
+                "waitlist": ""
+            }
+        ],
 
-            ]
-        }
-    }
+        "depts": [],
 
-    "User-data": {
-        "Username": {
-            "Name": "string",
-            "Username": "string",
-            "Major": "string",
-            "Taken": [
+        "deptTitles": [],
 
-            ],
-            "Planned": {
-                "Spring2019": [
-                    
-                ]
-            },
-            "registered": false
+        "User-data": {
+            "Username": {
+                "Name": "string",
+                "Username": "string",
+                "Major": "string",
+                "Taken": [
+                ],
+                "Planned": {
+                    "Spring2019": [
+                        
+                    ]
+                },
+                "registered": false
+            }
         }
     }
 }
