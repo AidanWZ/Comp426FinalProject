@@ -6,6 +6,28 @@ const userRoot = new axios.create({
     baseURL: "http://localhost:3000/user"
 });
 
+const majorList = getMajorList();
+const minorList = getMinorList();
+
+function getMajorList() {
+    let token = localStorage.getItem("jwt");
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/public/Portal/majorTitles', false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = JSON.parse(request.response).result;
+    return result;
+}
+function getMinorList() {
+    let token = localStorage.getItem("jwt");
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/public/Portal/minorTitles', false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = JSON.parse(request.response).result;
+    return result;
+}
+
 function autocomplete(inp, arr) {
     var currentFocus;
     inp.addEventListener("input", function(e) {
@@ -138,10 +160,7 @@ function getRequirements() {
     request.setRequestHeader("Authorization", "Bearer " + token);
     request.send(null);
     let result = JSON.parse(request.response).result;
-    let major1 = getUserMajor();
-    let minor1 = getUserMinor();
-    console.log(result[major1]['reqs']);
-    return result[major1]['reqs'];
+    return result;
 }
 
 async function loadWorksheet() {
@@ -160,8 +179,8 @@ async function loadWorksheet() {
 
     const classesTaken = getUserClasses();
     const requirements = getRequirements();
-    var majorReqs = requirements;
-    var minorReqs = requirements;
+    var majorReqs = requirements[major]['reqs'];
+    var minorReqs = requirements[minor]['reqs'];
     for (let i = 0; i < majorReqs.length; i++) {
         if(majorReqs[i].length > 8) {
             majorReqs.splice(i, 1);
@@ -172,71 +191,67 @@ async function loadWorksheet() {
             minorReqs.splice(i, 1);
         }
     }
-    let userRequirements = {
-        MajorReqs: majorReqs,
-        MinorReqs: minorReqs
-    }
 
     for(let i = 0; i < classesTaken.length; i++) {
         document.getElementById("classesTaken").innerHTML += "<div>" + classesTaken[i] + "<div>";
     }
-     
-    for(let i = 0; i < userRequirements.MajorReqs.length; i++) {
-        if (classesTaken.includes(userRequirements.MajorReqs[i])) {
-            document.getElementById("majorReqs").innerHTML +=
-                "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-success'>Taken</span></div>";
-        }
-        else {
-            document.getElementById("majorReqs").innerHTML += 
-            "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-danger'>Not taken</span></div>";
+    if (majorReqs.length == 0) {
+        document.getElementById("majorReqs").innerHTML +=
+        "<div><span class='has-text-info'>No Requirements found</span></div>";   
+    }
+    else {
+        for(let i = 0; i < majorReqs.length; i++) {
+            if (classesTaken.includes(majorReqs[i])) {
+                document.getElementById("majorReqs").innerHTML +=
+                    "<div>"+majorReqs[i]+": <span class='has-text-success'>Taken</span></div>";
+            }
+            else {
+                document.getElementById("majorReqs").innerHTML += 
+                "<div>"+majorReqs[i]+": <span class='has-text-danger'>Not taken</span></div>";
+            }
         }
     }
-    for(let i = 0; i < userRequirements.MinorReqs.length; i++) {
-        if (classesTaken.includes(userRequirements.MinorReqs[i])) {
-            document.getElementById("minorReqs").innerHTML +=
-                "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-success'>Taken</span></div>";
-        }
-        else {
-            document.getElementById("minorReqs").innerHTML += 
-            "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-danger'>Not taken</span></div>";
+    if (minorReqs.length == 0) {
+        document.getElementById("minorReqs").innerHTML +=
+        "<div><span class='has-text-info'>No Requirements found</span></div>";   
+    }
+    else {
+        for(let i = 0; i < minorReqs.length; i++) {
+            if (classesTaken.includes(minorReqs[i])) {
+                document.getElementById("minorReqs").innerHTML +=
+                    "<div>"+minorReqs[i]+": <span class='has-text-success'>Taken</span></div>";
+            }
+            else {
+                document.getElementById("minorReqs").innerHTML += 
+                "<div>"+minorReqs[i]+": <span class='has-text-danger'>Not taken</span></div>";
+            }
         }
     }
-}
-
-function getMajorList() {
-    var request = new XMLHttpRequest();
-    request.open('GET', 'http://localhost:3000/public/Portal/majorTitles', false);
-    request.send(null);
-    return JSON.parse(request.response).result;
-}
-
-function getMinorList() {
-    var request = new XMLHttpRequest();
-    request.open('GET', 'http://localhost:3000/public/Portal/minorTitles', false);
-    request.send(null);
-    return JSON.parse(request.response).result;
 }
 
 async function submitMajor() {
-    let major2 = document.getElementById('major');
-    let token = localStorage.getItem("jwt");
-    // const result = axios.post('http://localhost:3000/user/data/major/', {data: major2}, {headers: {authorization: 'Bearer ' + token}});
-    const result = await axios ({
-        method: 'post',
-        url: 'http://localhost:3000/user/data/major/',
-        data: major2,
-        headers: {
-            authorization: 'Bearer ' + token,
-        },
-    })
-    return result;
+    let major = document.getElementById('major').value;
+    if (majorList.includes(major)) {
+        let token = localStorage.getItem("jwt");
+        axios.post('http://localhost:3000/user/data/major/', {data: major}, {headers: {authorization: 'Bearer ' + token}});
+    }
+    else {
+        document.getElementById('major-warnings').innerHTML = 
+        `<span class="has-text-danger">${major} is not a major</span>`;
+    }
+    
 }
 
 async function submitMinor() {
-    let minor2 = document.getElementById('minor');
-    let token = localStorage.getItem("jwt");
-    const result = axios.post('http://localhost:3000/user/data/major/', {data: minor2}, {headers: {authorization: 'Bearer ' + token}});
-    return result;
+    let minor = document.getElementById('minor').value;
+    if (minorList.includes(minor)) {
+        let token = localStorage.getItem("jwt");
+        axios.post('http://localhost:3000/user/data/minor/', {data: minor}, {headers: {authorization: 'Bearer ' + token}});
+    }
+    else {
+        document.getElementById('minor-warnings').innerHTML = 
+        `<span class="has-text-danger">${minor} is not a minor</span>`;
+    }
 }
 
 $(document).ready(function(){
@@ -245,6 +260,6 @@ $(document).ready(function(){
     let minorList = getMinorList();
     autocomplete(document.getElementById("major"), majorList);
     autocomplete(document.getElementById("minor"), minorList);
-    $("#submitMajor").on("click", submitMajor);
-    $().on("click", submitMinor);
+    $("#majorSubmit").on("click", submitMajor);
+    $("#minorSubmit").on("click", submitMinor);
 })

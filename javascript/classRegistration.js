@@ -184,7 +184,6 @@ function cancelClasses() {
 
 async function submitClasses() {
   let token = localStorage.getItem("jwt");
-  var currentClasses = getUserClasses();
   for (let i = 0; i < classes.length; i++) {
     if (!classCatalog.includes(classes[i])) {
       badClasses.push(classes[i]);
