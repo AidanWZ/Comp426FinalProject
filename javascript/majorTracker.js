@@ -16,7 +16,6 @@ function autocomplete(inp, arr) {
         a = document.createElement("DIV");
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
-        console.log(this.parentNode);
         this.parentNode.appendChild(a);
         for (i = 0; i < arr.length; i++) {
           if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
@@ -89,7 +88,6 @@ function getUserData() {
     request.setRequestHeader("Authorization", "Bearer " + token);
     request.send(null);
     let result = JSON.parse(request.response).result;
-    console.log(result);
     return result;
 }
 
@@ -120,7 +118,6 @@ function getUserClasses() {
     request.setRequestHeader("Authorization", "Bearer " + token);
     request.send(null);
     let result = JSON.parse(request.response).result;
-    console.log(result);
     return result;
 }
 
@@ -151,8 +148,9 @@ async function loadWorksheet() {
     let greetings = ['Hello', 'Bonjour', 'Hola', 'Hallo', 'Ciao', 'Ola', 'Namaste', 'Salaam', 'Zdras-Tvuy-te', 'Konnichiwa', 'ahn-young-se-yo', 'marhaba'];
     var item = greetings[Math.floor(Math.random()*greetings.length)];
     let token = localStorage.getItem("jwt");
-    const first = getUserData(token).first;
-    const last = getUserData(token).last;
+    let userData = getUserData(token)
+    const first = userData.first;
+    const last = userData.last;
     let fullname = first+" "+last;
     document.getElementById('name').innerHTML = `${item} ${fullname}!`;
     const major = getUserMajor();
@@ -164,15 +162,20 @@ async function loadWorksheet() {
     const requirements = getRequirements();
     var majorReqs = requirements;
     var minorReqs = requirements;
-    console.log(majorReqs);
+    for (let i = 0; i < majorReqs.length; i++) {
+        if(majorReqs[i].length > 8) {
+            majorReqs.splice(i, 1);
+        }
+    }
+    for (let i = 0; i < minorReqs.length; i++) {
+        if(!minorReqs[i].length > 8) {
+            minorReqs.splice(i, 1);
+        }
+    }
     let userRequirements = {
         MajorReqs: majorReqs,
         MinorReqs: minorReqs
     }
-    // let userRequirements = {
-    //     MajorReqs: ['COMP110', 'COMP401', 'COMP116'],
-    //     MinorReqs: ['COMP110']
-    // }
 
     for(let i = 0; i < classesTaken.length; i++) {
         document.getElementById("classesTaken").innerHTML += "<div>" + classesTaken[i] + "<div>";
@@ -181,47 +184,29 @@ async function loadWorksheet() {
     for(let i = 0; i < userRequirements.MajorReqs.length; i++) {
         if (classesTaken.includes(userRequirements.MajorReqs[i])) {
             document.getElementById("majorReqs").innerHTML +=
-                "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-success'>success</span></div>";
+                "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-success'>Taken</span></div>";
         }
         else {
             document.getElementById("majorReqs").innerHTML += 
-            "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-danger'>success</span></div>";
+            "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-danger'>Not taken</span></div>";
         }
     }
     for(let i = 0; i < userRequirements.MinorReqs.length; i++) {
         if (classesTaken.includes(userRequirements.MinorReqs[i])) {
             document.getElementById("minorReqs").innerHTML +=
-                "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-success'>success</span></div>";
+                "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-success'>Taken</span></div>";
         }
         else {
             document.getElementById("minorReqs").innerHTML += 
-            "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-danger'>success</span></div>";
+            "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-danger'>Not taken</span></div>";
         }
     }
-}
-
-function home() {
-    window.location.replace('http://localhost:3001/html/home/home.html');
-}
-function majorTracker() {
-    window.location.replace('http://localhost:3001/html/major-tracker/major-tracker.html');
-}
-function classRegistration() {
-    window.location.replace('http://localhost:3001/html/class-registration/class-registration.html');
-}
-function planner() {
-    window.location.replace('http://localhost:3001/html/planner/planner.html');
-}
-function logout() {
-    window.localStorage.clear();
-    window.location.replace('http://localhost:3001/index.html');
 }
 
 function getMajorList() {
     var request = new XMLHttpRequest();
     request.open('GET', 'http://localhost:3000/public/Portal/majorTitles', false);
     request.send(null);
-    console.log(request.response);
     return JSON.parse(request.response).result;
 }
 
@@ -229,7 +214,6 @@ function getMinorList() {
     var request = new XMLHttpRequest();
     request.open('GET', 'http://localhost:3000/public/Portal/minorTitles', false);
     request.send(null);
-    console.log(request.response);
     return JSON.parse(request.response).result;
 }
 
@@ -245,7 +229,6 @@ async function submitMajor() {
             authorization: 'Bearer ' + token,
         },
     })
-    console.log(result);
     return result;
 }
 
@@ -253,7 +236,6 @@ async function submitMinor() {
     let minor2 = document.getElementById('minor');
     let token = localStorage.getItem("jwt");
     const result = axios.post('http://localhost:3000/user/data/major/', {data: minor2}, {headers: {authorization: 'Bearer ' + token}});
-    console.log(result);
     return result;
 }
 
@@ -263,11 +245,6 @@ $(document).ready(function(){
     let minorList = getMinorList();
     autocomplete(document.getElementById("major"), majorList);
     autocomplete(document.getElementById("minor"), minorList);
-    $("#home").on("click", home);
-    $("#major-tracker").on("click", majorTracker);
-    $("#class-registration").on("click", classRegistration);
-    $("#planner").on("click", planner);
-    $("#logout").on("click", logout);
     $("#submitMajor").on("click", submitMajor);
     $().on("click", submitMinor);
 })
