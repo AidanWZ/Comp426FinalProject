@@ -16,13 +16,16 @@ var depts = content1.depts.sort();
 depts = depts.map(function(x){ return x.toUpperCase() });
 var content2 = JSON.parse(fs.readFileSync(process.cwd() + '/class-files/json/majors.json'));
 var majors = content2.majorNames.sort();
+var content3 = JSON.parse(fs.readFileSync(process.cwd() + '/class-files/json/allClassesList.json'));
+var classes = content3.classes.sort();
 
 allReqs = [];
 var obj = {};
 for (let i = 0; i < majors.length; i++) {
     console.log(majors[i]);
-    tempobj = {}
+    tempobj = {};
     requirementList = [];
+    newList = [];
     var data = fs.readFileSync(process.cwd() + '/class-files/html/majors/' + majors[i] + '.html').toString('utf8');
     const root = parser.parse(data);
     var table;
@@ -34,37 +37,41 @@ for (let i = 0; i < majors.length; i++) {
     }
     
     var requirementList = []
+    var newList = [];
     for (let j = 0; j < table.length; j++) {
         requirementList.push(table[j].rawText.replace('�', ' '));
     }
     requirementList.remove('\r\n');
     requirementList.shift();
-    requirementList.shift();
     var hours = requirementList[requirementList.length-1].substring(requirementList[requirementList.length-1].length-2, 
-                                                                    requirementList[requirementList.length-1].length);
+                                                                    requirementList[requirementList.length-1].length);                                                              
     for(let x = 0; x < requirementList.length; x++) {
-        var words = requirementList[x].split(' ');
-        if (words[0].length == 4 && depts.includes(words[0])) {
-            requirementList[x] = requirementList[x].substring(0,8);
-            requirementList[x] = requirementList[x].substring(0,4) + requirementList[x].substring(5,8);
+        if (requirementList[x].substring(0,2) == 'or') {
+            requirementList[x] = requirementList[x].substring(3,11);
         }
-        else if (words[0].length == 3 && depts.includes(words[0])) {
-            requirementList[x] = requirementList[x].substring(0,7);
-            requirementList[x] = requirementList[x].substring(0,3) + requirementList[x].substring(4,7);
+        else {
+            requirementList[x] = requirementList[x].substring(0,8);
         }
 
-        if (requirementList[x].length > 7) {
-            requirementList.splice(x,20);
+        if (depts.includes(requirementList[x].substring(0,4))) {
+            requirementList[x] = requirementList[x].substring(0,4) + requirementList[x].substring(5,8);
         }
+        else if (depts.includes(requirementList[x].substring(0,3))) {
+            requirementList[x] = requirementList[x].substring(0,3) + requirementList[x].substring(4,7);
+        }
+        if (classes.includes(requirementList[x])) {
+            newList.push(requirementList[x]);         
+        }
+        
     }
+    
     tempobj = {}
-    tempobj['reqs'] = requirementList;
+    tempobj['reqs'] = newList;
     tempobj['hours'] = hours;
     obj[majors[i]] = tempobj;
 }
 var result = {
     requirements: obj
 }
-console.log(result);
 var objResult = JSON.stringify(result);
 fs.writeFileSync(process.cwd() + '/class-files/json/requirements.json', objResult, 'utf8');
