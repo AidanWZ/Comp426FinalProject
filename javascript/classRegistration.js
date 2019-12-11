@@ -1,18 +1,29 @@
 const pubRoot = new axios.create({
     baseURL: "http://localhost:3000/public"
 });
-
 const userRoot = new axios.create({
   baseURL: "http://localhost:3000/user"
 });
-
 const statusRoot = new axios.create({
   baseURL: "http://localhost:3000/account/status"
 })
 
+var classes;
+let classCatalog = getClassCatalog();
+let userStatus = window.localStorage.getItem('newUser');
+if (!userStatus) {
+  classes = [];
+}
+else {
+  classes = getUserClasses();
+}
 
 
 function autocomplete(inp, arr) {
+
+    document.getElementById('root').innerHTML = renderClasses();
+    document.getElementById('myInput').value="";
+
     let token = localStorage.getItem("jwt");
     var userName = getUser(token);
     document.getElementById('username').innerHTML = `<b>Registering for user ${userName}</b>`
@@ -89,9 +100,6 @@ function getClassCatalog() {
   return JSON.parse(request.response).result;
 }
 
-let classCatalog = getClassCatalog();
-let classes = getUserClasses();
-
 function renderClasses() {
     let classesHTML = ``;
     for (let x = 0; x < classes.length; x++) {
@@ -114,16 +122,14 @@ async function getUser(token) {
   return result;
 }
 
-async function getUserClasses() {
-  var token = window.localStorage.getItem('jwt');
-  var username = getUser(token);
-
-  const userClasses = await axios ({
-      method: 'get',
-      url: 'http://localhost:3000/user/' + username + '/',
-      headers: {authentication: "bearer " + token}
-  });
-  return userClasses.data.result;
+function getUserClasses() {
+  let token = localStorage.getItem("jwt");
+  var request = new XMLHttpRequest();
+  request.open('GET', 'http://localhost:3000/user/classes', false);
+  request.setRequestHeader("Authorization", "Bearer " + token);
+  request.send(null);
+  let result = JSON.parse(request.response).result;
+  return result;
 }
 
 function deleteClass(event) {
@@ -158,12 +164,18 @@ function deleteClass(event) {
 
 function addButton() {
     let name = document.getElementById('myInput').value;
-    classes[classes.length] = name;
-    document.getElementById('root').innerHTML = renderClasses();
-    document.getElementById('myInput').value="";
+    let badClasses = [];
+    if (!classCatalog.includes(name)) {
+      badClasses.push(name);
+      document.getElementById('warnings').innerHTML = `<span class=has-text-danger>${name} is not a class</span>`;
+    }
+    else {
+      classes[classes.length] = name;
+      document.getElementById('root').innerHTML = renderClasses();
+      document.getElementById('myInput').value="";
+    }
     $(".delete").on("click", deleteClass);
     $("#cancelButton").on("click", cancelClasses);
-
 }
 
 function cancelClasses() {
@@ -172,11 +184,11 @@ function cancelClasses() {
 
 async function submitClasses() {
   let token = localStorage.getItem("jwt");
-  let badClasses = [];
+  var currentClasses = getUserClasses();
   for (let i = 0; i < classes.length; i++) {
     if (!classCatalog.includes(classes[i])) {
       badClasses.push(classes[i]);
-      document.getElementById('warnings').innerHTML.push(`<span class=has-text-danger>${classes[i]} is not a class</span>`);
+      document.getElementById('warnings').innerHTML += `<span class=has-text-danger>${classes[i]} is not a class</span>`;
       classes.splice(i, 1);
     }
   }
@@ -184,7 +196,8 @@ async function submitClasses() {
   
   const newUserBool = window.localStorage.getItem('newUser');
   if (newUserBool) {
-    window.location.replace('http://localhost:3001/html/home/home.html');
+    window.localStorage.setItem('newUser', false);
+    //window.location.replace('http://localhost:3001/html/home/home.html');
   }
 }
 
