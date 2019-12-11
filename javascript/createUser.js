@@ -19,7 +19,6 @@ function getMajorList() {
     var request = new XMLHttpRequest();
     request.open('GET', 'http://localhost:3000/public/Portal/majorTitles', false);
     request.send(null);
-    console.log(request.response);
     return JSON.parse(request.response).result;
 }
 
@@ -27,7 +26,6 @@ function getMinorList() {
     var request = new XMLHttpRequest();
     request.open('GET', 'http://localhost:3000/public/Portal/minorTitles', false);
     request.send(null);
-    console.log(request.response);
     return JSON.parse(request.response).result;
 }
 
@@ -105,7 +103,7 @@ async function submitRegistry() {
     const password = document.getElementById("psw").value;
     const confirm = document.getElementById("psw-repeat").value;
     const major = document.getElementById("major").value;
-    const minor = (document.getElementById("minor").value != "") ? document.getElementById("minor").value : null;
+    const minor = document.getElementById("minor").value;
 
     if (username != "" &&
         first != "" && 
@@ -114,42 +112,50 @@ async function submitRegistry() {
         confirm != "" && 
         major != "" &&
         minor != "") {
-            //const usernameExists = await pubRoot.get('/Login/');
-            //console.log(usernameExists.data);
             usernameExists = false;
-            //if (!usernameExists.data.result.includes(username)) {
             if (!usernameExists) {
                 if (password == confirm) {
-                    const result1 = await axios ({
-                        method: 'post',
-                        url: 'http://localhost:3000/account/create',
-                        data: {
-                            'name': username,
-                            'pass': password,
-                        },
-                    });
-                    
-                    const result = await axios ({
-                        method: 'post',
-                        url: 'http://localhost:3000/account/login',
-                        data: {
-                            'name': username,
-                            'pass': password,
-                        },
-                    });
-                    let token = result.data.jwt;
-                    let object1 = {
-                        'major': major,
-                        'minor': minor,
-                        'username': username,
-                        'password': password,
-                        'first': first,
-                        'last': last
+                    try {
+                        const result1 = await axios ({
+                            method: 'post',
+                            url: 'http://localhost:3000/account/create',
+                            data: {
+                                'name': username,
+                                'pass': password,
+                            },
+                        });
+                        
+                        const result = await axios ({
+                            method: 'post',
+                            url: 'http://localhost:3000/account/login',
+                            data: {
+                                'name': username,
+                                'pass': password,
+                            },
+                        });
+                        let token = result.data.jwt;
+                        let object1 = {
+                            'major': major,
+                            'minor': minor,
+                            'username': username,
+                            'password': password,
+                            'first': first,
+                            'last': last
+                        }
+                        console.log(object1);
+                        axios.post('http://localhost:3000/user/data/', {data: object1}, {headers: {authorization: 'Bearer ' + token}});
+                        localStorage.setItem("jwt", token);
+                        localStorage.setItem("newUser", true);
+                        window.location.assign('http://localhost:3001/html/add-classes-now/addClassesNow.html');
                     }
-                    console.log(object1);
-                    axios.post('http://localhost:3000/user/data/', {data: object1}, {headers: {authorization: 'Bearer ' + token}});
-                    localStorage.setItem("jwt", token);
-                    window.location.assign('http://localhost:3001/html/add-classes-now/addClassesNow.html');
+                    catch {
+                        document.getElementById('notes').innerHTML = 
+                        `<div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Something went wrong with the server.
+                        </div>`;
+                    }
+                    
                 }
                 else {
                     document.getElementById('notes').innerHTML = 
@@ -169,25 +175,43 @@ async function submitRegistry() {
         }
     else {
         var note = "";
+        var counter = 0;
         if (first == "") {
             note = note + "first name, ";
+            counter++;
         }
         if (last == "") {
             note = note + "last name, ";
+            counter++;
         }
         if (username == "") {
             note = note + "username, ";
+            counter++;
         }
         if (password == "") {
             note = note + "password, ";
+            counter++;
         }
         if (confirm == "") {
             note = note + "confirm password, ";
+            counter++;
         }
         if (major == "") {
-            note = note + "intended major";
+            note = note + "intended major,";
+            counter++;
         }
-        note = note + " were not entered, please enter."
+        if (minor == "") {
+            note = note + "intended minor";
+            counter++;
+        }
+        
+        if (counter > 1) {
+            note = note + " were not entered, please enter."
+        }
+        else {
+            note = note + " was not entered, please enter."
+        }
+        
         document.getElementById('notes').innerHTML = 
                     `<div class="alert">
                         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>

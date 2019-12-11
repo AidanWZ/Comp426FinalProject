@@ -25,12 +25,15 @@
         </div>
         <br>
         <div class="register-card">
-            <div class="left-pane">
-                <div class="register-card-title">
-                    <p><b>Klass Registration</b></p>
-                </div>
+            <div class="register-card-title">
+                <p><b>Klass Registration</b></p>
+            </div>
+            <div class="left-pane pane">
                 <div class="advice">
                     <p><b>Type in all the classes that you have taken</b></p>
+                </div>
+                <div class="usernameContainer" id="usernameContainer">
+                    <span id=username></span>
                 </div>
                 <br>
                 <div class="register-content">
@@ -45,17 +48,23 @@
                                 <button class="button is-info" type="button" id="addButton">Add Class</button>
                             </form>
                         <br>
-                        <span><b>List of Classes</b></span>
-                        <div id="root" class="classList">
-                            None
-                        </div>
-                        <br>
-                        <button style="width: 150px;" class="button is-danger" type='button' id='cancelButton'>Cancel</button>
-                        <button style="width: 150px;" class="button is-success" type='button' id='submitButton'>Submit class</button>
                     </div>
                 </div>
             </div>
-            <br>  
+            <div class="right-pane pane">
+                <div class="edit-classes">
+                    <span><b>List of Classes</b></span>
+                    <div id="root" class="classList">
+                        None
+                    </div>
+                    <br>
+                    <button style="width: 150px;" class="button is-danger" type='button' id='cancelButton'>Cancel</button>
+                    <button style="width: 150px;" class="button is-success" type='button' id='submitButton'>Submit class</button>
+                </div>
+                <div id="warnings">
+                    
+                </div>
+            </div>
         </div>
     </div>
 

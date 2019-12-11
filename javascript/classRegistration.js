@@ -13,29 +13,33 @@ const statusRoot = new axios.create({
 
 
 function autocomplete(inp, arr) {
+    let token = localStorage.getItem("jwt");
+    var userName = getUser(token);
+    document.getElementById('username').innerHTML = `<b>Registering for user ${userName}</b>`
+    
     var currentFocus;
     inp.addEventListener("input", function(e) {
-        var a, b, i, val = this.value;
-        closeAllLists();
-        if (!val) { return false;}
-        currentFocus = -1;
-        a = document.createElement("DIV");
-        a.setAttribute("id", this.id + "autocomplete-list");
-        a.setAttribute("class", "autocomplete-items");
-        this.parentNode.appendChild(a);
-        for (i = 0; i < arr.length; i++) {
-          if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-            b = document.createElement("DIV");
-            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-            b.innerHTML += arr[i].substr(val.length);
-            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-                b.addEventListener("click", function(e) {
-                inp.value = this.getElementsByTagName("input")[0].value;
-                closeAllLists();
-            });
-            a.appendChild(b);
-          }
+      var a, b, i, val = this.value;
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      this.parentNode.appendChild(a);
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          b = document.createElement("DIV");
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+              b.addEventListener("click", function(e) {
+              inp.value = this.getElementsByTagName("input")[0].value;
+              closeAllLists();
+          });
+          a.appendChild(b);
         }
+      }
     });
     inp.addEventListener("keydown", function(e) {
         var x = document.getElementById(this.id + "autocomplete-list");
@@ -85,9 +89,8 @@ function getClassCatalog() {
   return JSON.parse(request.response).result;
 }
 
-//let classCatalog = ["COMP110", "COMP401", "COMP410", "COMP411", "COMP426", "COMP431", "COMP455", "COMP535", "COMP550", "COMP585", "COMP410", "COMP411", "COMP426", "COMP431", "COMP455", "COMP535", "COMP850", "COMP885"];
 let classCatalog = getClassCatalog();
-let classes = [];
+let classes = getUserClasses();
 
 function renderClasses() {
     let classesHTML = ``;
@@ -102,6 +105,15 @@ function renderClasses() {
     return classesHTML;
 }
 
+async function getUser(token) {
+  var request = new XMLHttpRequest();
+  request.open('GET', 'http://localhost:3000/account/status', false);
+  request.setRequestHeader("Authorization", "Bearer " + token);
+  request.send(null);
+  let result = JSON.parse(request.response).result;
+  return result;
+}
+
 async function getUserClasses() {
   var token = window.localStorage.getItem('jwt');
   var username = getUser(token);
@@ -111,7 +123,6 @@ async function getUserClasses() {
       url: 'http://localhost:3000/user/' + username + '/',
       headers: {authentication: "bearer " + token}
   });
-  console.log(userClasses.data.result);
   return userClasses.data.result;
 }
 
@@ -155,27 +166,26 @@ function addButton() {
 
 }
 
-async function getUser(token) {
-  const result = await axios ({
-    method: 'get',
-    url: 'http://localhost:3000/account/status',
-    headers: {
-      authorization: 'Bearer ' + token,
-    },
-  });
-  return result.data.user.name;
-}
-
 function cancelClasses() {
   window.location.replace('http://localhost:3001/html/home/home.html');
 }
 
 async function submitClasses() {
   let token = localStorage.getItem("jwt");
-  let username = getUser(token);
+  let badClasses = [];
+  for (let i = 0; i < classes.length; i++) {
+    if (!classCatalog.includes(classes[i])) {
+      badClasses.push(classes[i]);
+      document.getElementById('warnings').innerHTML.push(`<span class=has-text-danger>${classes[i]} is not a class</span>`);
+      classes.splice(i, 1);
+    }
+  }
   axios.post('http://localhost:3000/user/classes/', {data: classes}, {headers: {authorization: 'Bearer ' + token}});
-    
-  // window.location.replace('http://localhost:3001/html/home/home.html');
+  
+  const newUserBool = window.localStorage.getItem('newUser');
+  if (newUserBool) {
+    window.location.replace('http://localhost:3001/html/home/home.html');
+  }
 }
 
 $(document).ready(function() {
