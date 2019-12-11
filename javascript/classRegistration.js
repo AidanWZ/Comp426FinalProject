@@ -11,11 +11,11 @@ const statusRoot = new axios.create({
 var classes;
 let classCatalog = getClassCatalog();
 let userStatus = window.localStorage.getItem('newUser');
-if (!userStatus) {
-  classes = [];
+if (userStatus != 'yes') {
+  classes = getUserClasses();
 }
 else {
-  classes = getUserClasses();
+  classes = [];
 }
 
 
@@ -194,9 +194,9 @@ async function submitClasses() {
   axios.post('http://localhost:3000/user/classes/', {data: classes}, {headers: {authorization: 'Bearer ' + token}});
   
   const newUserBool = window.localStorage.getItem('newUser');
-  if (newUserBool) {
-    window.localStorage.setItem('newUser', false);
-    //window.location.replace('http://localhost:3001/html/home/home.html');
+  if (newUserBool == 'yes') {
+    window.localStorage.setItem('newUser', 'no');
+    window.location.replace('http://localhost:3001/html/home/home.html');
   }
 }
 

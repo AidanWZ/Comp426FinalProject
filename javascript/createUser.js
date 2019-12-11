@@ -218,6 +218,7 @@ async function submitRegistry() {
                         ${note}
                     </div>`;
     }
+    window.localStorage.setItem('newUser', 'yes');
 }
 function cancelRegistry() {
     window.location.assign('http://localhost:3001/index.html');

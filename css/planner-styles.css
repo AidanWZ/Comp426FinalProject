@@ -43,7 +43,7 @@ h3 {
 }
 
 body {
-  background-image: url("./../images/old-well3.jpg");
+  background-image: url("./../images/old-well2.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -51,9 +51,8 @@ body {
   min-height: 1000px;
 }
 
-.container {
+.planner {
   margin-left: 3%;
-  margin-top: 3%;
 }
 
 .register-card {
@@ -64,21 +63,20 @@ body {
   color: #99badd;
 }
 
-.left-pane {
-  width: 30%;
+.left {
+  width: 20%;
   float: left;
   background-color:transparent;
 }
-.divider {
-  width: 10%;
-}
-.right-pane {
-  width: 60%;
+
+.right {
   float: right;
   background-color: white;
+  margin-right: 10%;
+  width: 70%;
 }
 
-.register-card-title {
+.plannerTitle {
   color: white;
   font-size: 300%;
 }
@@ -104,12 +102,11 @@ span {
 .classList {
   color: black;
   background-color: white;
-  width: 300px;
+  width: 500px;
   min-height: 35px;
   font-size: 16px;
-  padding:8px;
   border: 1px solid transparent;
-  max-height: 400px;
+  height: 500px;
   overflow: auto;
 }
 
@@ -174,3 +171,6 @@ input[type=submit] {
   color: #ffffff; 
 }
 
+.bigtitle {
+  color: white;
+}
