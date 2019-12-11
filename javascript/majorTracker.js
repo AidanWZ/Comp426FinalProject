@@ -7,14 +7,12 @@ const userRoot = new axios.create({
 });
 
 async function getUser(token) {
-    const result = await axios ({
-      method: 'get',
-      url: 'http://localhost:3000/account/status',
-      headers: {
-        authorization: 'Bearer ' + token,
-      },
-    });
-    return result.data.user.name;
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/account/status', false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = JSON.parse(request.response).result;
+    return result;
 }
 
 function getUserData() {
@@ -24,7 +22,26 @@ function getUserData() {
     request.setRequestHeader("Authorization", "Bearer " + token);
     request.send(null);
     let result = JSON.parse(request.response).result;
-    console.log(result);
+    return result;
+}
+
+function getUserMajor() {
+    let token = localStorage.getItem("jwt");
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/user/data/major', false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = JSON.parse(request.response).result;
+    return result;
+}
+
+function getUserMinor() {
+    let token = localStorage.getItem("jwt");
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/user/data/minor', false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = JSON.parse(request.response).result;
     return result;
 }
 
@@ -38,68 +55,81 @@ function getUserClasses() {
     return result;
 }
 
-function getRequirements(major) {
+function getRequirementsLookup(major) {
     let token = localStorage.getItem("jwt");
     var request = new XMLHttpRequest();
-    request.open('GET', 'http://localhost:3000/public/Portal/requirements/' + major, false);
+    request.open('GET', 'http://localhost:3000/public/Portal/requirements/'+major, false);
     request.setRequestHeader("Authorization", "Bearer " + token);
     request.send(null);
     let result = JSON.parse(request.response).result;
     return result;
 }
 
+function getRequirements() {
+    let token = localStorage.getItem("jwt");
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/public/Portal/requirements', false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = request.response;
+    return result;
+}
+
 async function loadWorksheet() {
+    let greetings = ['Hello', 'Bonjour', 'Hola', 'Hallo', 'Ciao', 'Ola', 'Namaste', 'Salaam', 'Zdras-Tvuy-te', 'Konnichiwa', 'ahn-young-se-yo', 'marhaba'];
+    var item = greetings[Math.floor(Math.random()*greetings.length)];
     let token = localStorage.getItem("jwt");
     const username = getUser(token);
-    document.getElementById('name').innerHTML = `Hi ${username}`;
-    const major = await axios ({
-        method: 'get',
-        url: 'http://localhost:3000/user/major',
-        headers: {
-            authorization: 'Bearer ' + token,
-        },
-    });
-    document.getElementById('major').innerHTML = `It looks like you are a ${major} Major`;
-    const classesTaken = getUserClasses();
-    const userData = getUserData();
+    document.getElementById('name').innerHTML = `${item} ${username}!`;
     
-    let requirements = {
-        MajorReqs: getRequirements(userData.major),
-        MinorReqs: getRequirements(userData.major)
+    const major = getUserMajor();
+    const minor = getUserMinor();
+    
+    document.getElementById('major-name').innerHTML = `You are currently registered as a ${major}`;
+    document.getElementById('minor-name').innerHTML = `and are currently registered as a ${minor}`;
+
+    const requirements = getRequirements();
+    const classesTaken = getUserClasses();
+    var majorReqs = requirements;
+    var minorReqs = requirements;
+    console.log(majorReqs);
+    let userRequirements = {
+        MajorReqs: majorReqs,
+        MinorReqs: minorReqs
     }
 
     for(let i = 0; i < classesTaken.length; i++) {
         document.getElementById("classesTaken").innerHTML += "<div>" + classesTaken[i] + "<div>";
     }
      
-    for(let i = 0; i < requirements.MajorReqs.length; i++) {
-        if (classesTaken.includes(requirements.MajorReqs[i])) {
+    for(let i = 0; i < userRequirements.MajorReqs.length; i++) {
+        if (classesTaken.includes(userRequirements.MajorReqs[i])) {
             document.getElementById("majorReqs").innerHTML +=
-                "<div>"+requirements.MajorReqs[i]+": <span class='has-text-success'>success</span></div>";
+                "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-success'>success</span></div>";
         }
         else {
             document.getElementById("majorReqs").innerHTML += 
-            "<div>"+requirements.MajorReqs[i]+": <span class='has-text-danger'>success</span></div>";
+            "<div>"+userRequirements.MajorReqs[i]+": <span class='has-text-danger'>success</span></div>";
         }
     }
-    for(let i = 0; i < requirements.Electives.length; i++) {
-        if (classesTaken.includes(requirements.Electives[i])) {
+    for(let i = 0; i < userRequirements.Electives.length; i++) {
+        if (classesTaken.includes(userRequirements.Electives[i])) {
             document.getElementById("Electives").innerHTML +=
-            "<div>"+requirements.Electives[i]+": <span class='has-text-success'>success</span></div>";
+            "<div>"+userRequirements.Electives[i]+": <span class='has-text-success'>success</span></div>";
         }
         else {
             document.getElementById("Electives").innerHTML += 
-            "<div>"+requirements.Electives[i]+": <span class='has-text-danger'>success</span></div>";    
+            "<div>"+userRequirements.Electives[i]+": <span class='has-text-danger'>success</span></div>";    
         }
     }
-    for(let i = 0; i < requirements.Additional.length; i++) {
-        if (classesTaken.includes(requirements.Additional[i])) {
+    for(let i = 0; i < userRequirements.Additional.length; i++) {
+        if (classesTaken.includes(userRequirements.Additional[i])) {
             document.getElementById("Additional").innerHTML += 
-            "<div>"+requirements.Additional[i]+": <span class='has-text-success'>success</span></div>";
+            "<div>"+userRequirements.Additional[i]+": <span class='has-text-success'>success</span></div>";
         }
         else {
             document.getElementById("Additional").innerHTML += 
-            "<div>"+requirements.Additional[i]+": <span class='has-text-danger'>success</span></div>";    
+            "<div>"+userRequirements.Additional[i]+": <span class='has-text-danger'>success</span></div>";    
         }
     }
 }
