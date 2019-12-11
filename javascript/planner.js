@@ -106,7 +106,6 @@ async function submit() {
         var isOffered = false;
         var index = -1;
         var classData;
-        console.log(classOfferings);
         for (let i = 0; i < classOfferings.length; i++) {
             var classString = classOfferings[i].subject.toUpperCase() + classOfferings[i].catelogNum;
             if (name == classString) {

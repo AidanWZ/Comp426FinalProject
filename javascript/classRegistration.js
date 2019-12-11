@@ -13,11 +13,9 @@ let classCatalog = getClassCatalog();
 let userStatus = window.localStorage.getItem('newUser');
 if (!userStatus) {
   classes = [];
-  console.log('new user');
 }
 else {
   classes = getUserClasses();
-  console.log('fetched classes for user');
 }
 
 
@@ -131,7 +129,6 @@ function getUserClasses() {
   request.setRequestHeader("Authorization", "Bearer " + token);
   request.send(null);
   let result = JSON.parse(request.response).result;
-  console.log(result);
   return result;
 }
 
@@ -157,7 +154,6 @@ function deleteClass(event) {
         }
     }
     classes=newClasses;
-    console.log("there" + classes);
     if (classes.length == 0) {
         document.getElementById('root').innerHTML = `None`;
     } else {
@@ -172,7 +168,6 @@ function addButton() {
     if (!classCatalog.includes(name)) {
       badClasses.push(name);
       document.getElementById('warnings').innerHTML = `<span class=has-text-danger>${name} is not a class</span>`;
-      console.log(name);
     }
     else {
       classes[classes.length] = name;
@@ -190,13 +185,10 @@ function cancelClasses() {
 async function submitClasses() {
   let token = localStorage.getItem("jwt");
   var currentClasses = getUserClasses();
-  console.log(currentClasses);
-  console.log(classes);
   for (let i = 0; i < classes.length; i++) {
     if (!classCatalog.includes(classes[i])) {
       badClasses.push(classes[i]);
       document.getElementById('warnings').innerHTML += `<span class=has-text-danger>${classes[i]} is not a class</span>`;
-      console.log(classes[i]);
       classes.splice(i, 1);
     }
   }
