@@ -7,6 +7,8 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
+
+
 input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
@@ -79,4 +81,36 @@ button:hover {
 /* When moving the mouse over the close button */
 .closebtn:hover {
   color: black;
+}
+
+/* .autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  /* top: 100%;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  max-height: 500px;
+} */
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
 }
