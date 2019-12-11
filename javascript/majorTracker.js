@@ -17,15 +17,35 @@ async function getUser(token) {
     return result.data.user.name;
 }
 
-async function getUser(token) {
-    const result = await axios ({
-      method: 'get',
-      url: 'http://localhost:3000/account/status',
-      headers: {
-        authorization: 'Bearer ' + token,
-      },
-    });
-    return result.data.user.name;
+function getUserData() {
+    let token = localStorage.getItem("jwt");
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/user', false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = JSON.parse(request.response).result;
+    console.log(result);
+    return result;
+}
+
+function getUserClasses() {
+    let token = localStorage.getItem("jwt");
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/user/classes', false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = JSON.parse(request.response).result;
+    return result;
+}
+
+function getRequirements(major) {
+    let token = localStorage.getItem("jwt");
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/public/Portal/requirements/' + major, false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = JSON.parse(request.response).result;
+    return result;
 }
 
 async function loadWorksheet() {
@@ -37,26 +57,17 @@ async function loadWorksheet() {
         url: 'http://localhost:3000/user/major',
         headers: {
             authorization: 'Bearer ' + token,
-          },
-    });
-    document.getElementById('major').innerHTML = `It looks like you are a ${major} Major`;
-    //let classesTaken = ['COMP110', 'COMP401', 'COMP410', 'COMP411', 'COMP426'];
-    const classesTaken = await axios ({
-        method: 'get',
-        url: 'http://localhost:3000/user/classes',
-        headers: {
-            authorization: 'Bearer ' + token,
         },
     });
-
-    //const requirements = await pubRoot.get('/Requirements/' + userdata.Major)
+    document.getElementById('major').innerHTML = `It looks like you are a ${major} Major`;
+    const classesTaken = getUserClasses();
+    const userData = getUserData();
+    
     let requirements = {
-        MajorReqs: ['COMP110', 'COMP401', 'COMP410', 'COMP411', 'COMP426', 'COMP455', 'COMP550'],
-        Electives: ['MATH233', 'MATH547'],
-        Additional: ['PHYS118', 'CHEM101']
-
+        MajorReqs: getRequirements(userData.major),
+        MinorReqs: getRequirements(userData.major)
     }
-    // change back to user data
+
     for(let i = 0; i < classesTaken.length; i++) {
         document.getElementById("classesTaken").innerHTML += "<div>" + classesTaken[i] + "<div>";
     }
