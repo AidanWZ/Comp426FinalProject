@@ -18,7 +18,6 @@ result = {
 }
 with open('{}/class-files/json/majors.json'.format(os.getcwd()), 'w') as outfile1:
     json.dump(result,outfile1)
-print(names)
 
 majorTitles = []
 minorTitles = []
@@ -35,7 +34,8 @@ with open('{}/class-files/json/minorTitles.json'.format(os.getcwd()), 'w') as ou
     json.dump(minorTitlesObj,outfile2)
 
 majorTitlesObj = {
-    'majorTitles': minorTitles
+    'majorTitles': majorTitles
 }
+print(majorTitles)
 with open('{}/class-files/json/majorTitles.json'.format(os.getcwd()), 'w') as outfile3:
     json.dump(majorTitlesObj,outfile3)
