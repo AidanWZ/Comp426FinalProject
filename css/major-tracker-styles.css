@@ -30,22 +30,20 @@ li a:hover {
 .column {
   background-color: white;
   float: left;
-  width:30%;
-  margin-left:5%;
-
+  width:25%;
+  margin-left: 5%;
   max-height: 600px;
   overflow: auto;
+}
+
+.row {
+  margin-left: 3.33%;
 }
 
 .row:after {
   content: "";
   display: table;
   clear: both;
-}
-
-.row {
-  margin-left: 20%;
-
 }
 
 body{
@@ -55,4 +53,55 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 1000px;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 75%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+.autocomplete-items {
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  max-height: 500px;
 }
