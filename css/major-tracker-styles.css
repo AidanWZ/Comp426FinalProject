@@ -105,3 +105,40 @@ input[type=submit] {
   overflow: auto;
   max-height: 500px;
 }
+
+#majorSubmit {
+  width: 100%;
+}
+#minorSubmit {
+  width: 100%;
+}
+
+#major {
+  width: 100%;
+}
+#minor {
+  width: 100%;
+}
+
+#top {
+  background-color: #99badd;
+  color: #111;
+  padding: 1cm;
+}
+
+#majorReqs {
+  text-indent: 1cm;
+}
+#minorReqs {
+  text-indent: 1cm;
+}
+#classesTaken {
+  text-indent: 1cm;
+}
+#register {
+  width: 100%;
+}
+
+.derp {
+  color: #111;
+}
