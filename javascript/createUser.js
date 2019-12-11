@@ -51,8 +51,16 @@ async function submitRegistry() {
                         },
                     });
                     let token = result.data.jwt;
-                    axios.post('http://localhost:3000/user/major/', {data: major}, {headers: {authorization: 'Bearer ' + token}});
-                    axios.post('http://localhost:3000/user/minor/', {data: minor}, {headers: {authorization: 'Bearer ' + token}});
+                    let object1 = {
+                        'major': major,
+                        'minor': minor,
+                        'username': username,
+                        'password': password,
+                        'first': first,
+                        'last': last
+                    }
+                    console.log(object1);
+                    axios.post('http://localhost:3000/user/data/', {data: object1}, {headers: {authorization: 'Bearer ' + token}});
                     localStorage.setItem("jwt", token);
                     window.location.assign('http://localhost:3001/html/add-classes-now/addClassesNow.html');
                 }

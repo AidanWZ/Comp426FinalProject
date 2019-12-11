@@ -6,7 +6,7 @@ ul {
   background-color: #99badd;
   position: sticky;
 }
-  
+
 li {
   float: left;
 }
@@ -25,6 +25,15 @@ li a:hover {
 
 .active {
   background-color: black;
+}
+
+.dashboard-item:hover {
+color: white;
+background-color: black;
+}
+
+.dashboard-item h3 :hover {
+  color: white;
 }
 
 .dashboard-item {
@@ -59,17 +68,22 @@ body, html {
 .home {
   /* The image used */
   background-image: url("./../images/old-well2.jpg");
-
-  /* Full height */
-  height: 100%; 
-
-  /* Center and scale the image nicely */
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
 h1 {
   text-align: center;
   color: white;
+}
+
+body {
+  background-image: url("./../images/old-well2.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
