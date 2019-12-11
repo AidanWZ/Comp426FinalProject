@@ -18,6 +18,16 @@ else {
   classes = [];
 }
 
+function getUserData() {
+  let token = localStorage.getItem("jwt");
+  var request = new XMLHttpRequest();
+  request.open('GET', 'http://localhost:3000/user/data', false);
+  request.setRequestHeader("Authorization", "Bearer " + token);
+  request.send(null);
+  let result = JSON.parse(request.response).result;
+  return result;
+}
+
 
 function autocomplete(inp, arr) {
 
@@ -25,8 +35,12 @@ function autocomplete(inp, arr) {
     document.getElementById('myInput').value="";
 
     let token = localStorage.getItem("jwt");
-    var userName = getUser(token);
-    document.getElementById('username').innerHTML = `<b>Registering for user ${userName}</b>`
+    let userData = getUserData(token)
+    const first = userData.first;
+    const last = userData.last;
+    let fullname = first+" "+last;
+    console.log(fullname);
+    document.getElementById('username').innerHTML = `<b>Registering for user ${fullname}</b>`
     
     var currentFocus;
     inp.addEventListener("input", function(e) {

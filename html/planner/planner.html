@@ -24,11 +24,12 @@
             </div>    
         </div>
         <br>
+        <br>
         <div class="planner">            
-            <div class="plannerTitle">
-                <p><b>Klass Planner</b></p>
-            </div>
             <div class="left">
+                <div class="plannerTitle">
+                        <p><b>Klass Planner</b></p>
+                </div>
                 <div class="advice">
                     <p><b>Type a class you are interested in</b></p>
                 </div>
@@ -37,46 +38,49 @@
                     <div id="class-input">
                         <div class="class-title">
                             <b>Class Title:</b>
+                        </div>
+                        <form autocomplete="off" action="action_page.php">
+                            <div class="autocomplete" style="width:300px;">
+                                <input id="myInput" type="text" name="myCountry" placeholder="COMP426">
                             </div>
-                                <form autocomplete="off" action="action_page.php">
-                                    <div class="autocomplete" style="width:300px;">
-                                        <input id="myInput" type="text" name="myCountry" placeholder="COMP426">
-                                    </div>
-                                </form>
-                            <br>
-                            <button style="width: 150px;" class="button is-danger" type='button' id='clear'>Clear</button>
-                            <button style="width: 150px;" class="button is-success" type='button' id='submit'>Info</button>
-                        </div>
-                        <div id="warnings">
-
+                        </form>
+                        <br>
+                        <button style="width: 150px;" class="button is-danger" type='button' id='clear'>Clear</button>
+                        <button style="width: 150px;" class="button is-success" type='button' id='submit'>Info</button>
+                    </div>
+                    <div id="warnings">
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                    <div id="bigtitle" style="color: white; font-size: 300%;">
+                        <b>Klass Information</b>
+                    </div>
+                    <div id="info-card"  style="padding: 5px;">
+                        <div style="padding: 5px;">
+                            <div id='test'><span></span></div>
+                            <div id="classTitle"></div>
+                            <div id="class-subtitle"></div>
+                            <div id="class-description"></div>
+                            <div id="subject"></div>
+                            <div id="catelog"></div>
+                            <div id="section"></div>
+                            <div id="classNum"></div>
+                            <div id="component"></div>
+                            <div id="units"></div>
+                            <div id="bldg"></div>
+                            <div id="room"></div>
+                            <div id="days"></div>
+                            <div id="time"></div>
+                            <div id="seats"></div>
+                            <div id="waitlist"></div>
+                            <div id="available"></div>
+                            <div id="taken"></div>
                         </div>
                     </div>
                 </div>
-                <div class="right">
-                    <title id="bigtitle">
-                        Klass Information
-                    </title>
-                    <div id="info-card">
-                        <div id="classTitle"></div>
-                        <div id="class-subtitle"></div>
-                        <div id="class-description"></div>
-                        <div id="subject"></div>
-                        <div id="catelog"></div>
-                        <div id="section"></div>
-                        <div id="classNum"></div>
-                        <div id="component"></div>
-                        <div id="units"></div>
-                        <div id="bldg"></div>
-                        <div id="room"></div>
-                        <div id="days"></div>
-                        <div id="time"></div>
-                        <div id="seats"></div>
-                        <div id="waitlist"></div>
-                        <div id="available"></div>
-                        <div id="taken"></div>
-                    </div>
-                </div>
-            </div>      
+            </div>
+        </div>      
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
