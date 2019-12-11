@@ -12,7 +12,7 @@ $(document).ready(function(){
     autocomplete(document.getElementById("myInput"), classList);
     $root = $("#root");
     $("#submit").on("click", submit);
-    $("#clear").on("click", logout);
+    $("#clear").on("click", clear);
 })
 
 function autocomplete(inp, arr) {
@@ -103,22 +103,26 @@ async function submit() {
             }
         }
         var catelogData = classCatalog[deptString][name];
+        console.log(catelogData);
         var isOffered = false;
         var index = -1;
         var classData;
         for (let i = 0; i < classOfferings.length; i++) {
             var classString = classOfferings[i].subject.toUpperCase() + classOfferings[i].catelogNum;
             if (name == classString) {
+                console.log(classString);
                 isOffered = true;
                 index = i;
                 classData = classOfferings[i];
                 break;
             }
         }
+        console.log(catelogData);
         if (isOffered) {
-            document.getElementById('class-title').innerHTML = 
+            console.log(catelogData.title);
+            document.getElementById('classTitle').innerHTML = 
             `<h3><b>Title</b></h3>
-            <span class="info" id="subject">${classString}</span>`;
+            <span class="info" id="subject">${catelogData.title}</span>`;
             
             document.getElementById('class-subtitle').innerHTML = 
             `<h3><b>Subtitle</b></h3>
@@ -180,7 +184,7 @@ async function submit() {
             `<h3><b>Available?</b></h3>
             <span class="info has-text-success" id="subject">Yes</span>`;
             
-            var taken = userClasses.includes();
+            var taken = userClasses.includes(catelogData.title);
             if (taken) {
                 document.getElementById('taken').innerHTML = 
                 `<h3><b>Taken</b></h3>
@@ -193,9 +197,10 @@ async function submit() {
             }
         }
         else {
-            document.getElementById('class-title').innerHTML = 
+            console.log(catelogData.title);
+            document.getElementById('classTitle').innerHTML = 
             `<h3><b>Title</b></h3>
-            <span class="info" id="subject">${name}</span>`;
+            <span class="info" id="subject">${catelogData.title}</span>`;
 
             document.getElementById('class-subtitle').innerHTML = 
             `<h3><b>Subtitle</b></h3>
@@ -213,7 +218,7 @@ async function submit() {
             `<h3><b>Available</b></h3>
             <span class="info has-text-danger" id="subject">No</span>`;
 
-            var taken = userClasses.includes(classString);
+            var taken = userClasses.includes(catelogData.title);
             if (taken) {
                 document.getElementById('taken').innerHTML = 
                 `<h3><b>Taken</b></h3>
@@ -222,7 +227,7 @@ async function submit() {
             else {
                 document.getElementById('taken').innerHTML = 
                 `<h3><b>Taken</b></h3>
-                <span class="info has-text-danger" id="subject">Yes</span>`;
+                <span class="info has-text-danger" id="subject">No</span>`;
             }
         }
     }
@@ -235,7 +240,7 @@ function clear() {
 }
 
 function clearInfo() {
-    document.getElementById('class-title').innerHTML = "";
+    document.getElementById('classTitle').innerHTML = "";
     document.getElementById('class-subtitle').innerHTML = "";
     document.getElementById('class-description').innerHTML = "";
     document.getElementById('subject').innerHTML = "";

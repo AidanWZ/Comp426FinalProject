@@ -25,11 +25,12 @@ li a:hover {
 
 h3 {
   font-size: x-large;
-  color: #d4d4d4;
+  color: black;
+  font-weight: bolder;
 }
 
 .info {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .active {
@@ -74,8 +75,7 @@ body {
 .right-pane {
   width: 60%;
   float: right;
-  background-color: #4da6ff;
-  opacity: 70%;
+  background-color: white;
 }
 
 .register-card-title {
@@ -84,7 +84,7 @@ body {
 }
 
 span {
-  color: white;
+  color: black;
   font-size: 200%;
 }
 
@@ -109,6 +109,8 @@ span {
   font-size: 16px;
   padding:8px;
   border: 1px solid transparent;
+  max-height: 400px;
+  overflow: auto;
 }
 
 
@@ -150,6 +152,8 @@ input[type=submit] {
   top: 100%;
   left: 0;
   right: 0;
+  overflow: auto;
+  max-height: 400px;
 }
 
 .autocomplete-items div {
