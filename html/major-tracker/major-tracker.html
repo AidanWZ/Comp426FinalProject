@@ -24,7 +24,7 @@
             </div>    
         </div>
         <br>
-        <div class='title has-text-weight-bold is-family-primary is-capitalized has-text-white is-size-1 has-background-color-white has-text-centered'>
+        <div class='title has-text-weight-bold is-family-primary has-text-white is-size-1 has-background-color-white has-text-centered' id="top">
             <div id="name">
                 
             </div>
@@ -39,13 +39,21 @@
         <div class="row">
             <div class='column' id='left'>
                 <div class='has-text-weight-normal is-family-primary has-text-black is-size-4'>
-                    Here are the classes you have taken!
-                    <div id="classesTaken" class="is-lowercase">
+                    <div class="Taken-title">
+                        <b>Here are the classes you have taken:</b>
+                    </div>
+                    <hr>
+                    <div class="sample">
+                        <a id="register" href="./../class-registration/classRegistration.html"><button style="width: 100%;" class='button is-success' type="button">Go to registration</button></a>
+                    </div>
+                    <hr>                 
+                    <div id="classesTaken" class="">
                     </div>
                 </div>
             </div>
             <div id='mid' class='column'>
-                <label class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4' for="major">Intended Major:</label>
+                <label class='has-text-weight-normal is-family-primary has-text-black is-size-4' for="major"><b>Major Requirements:</b></label>
+                <hr>
                 <form autocomplete="off">
                     <div class="autocomplete">
                         <input id="major" type="text" name="major" placeholder="Major (If undecided choose 'undecided')">
@@ -55,14 +63,15 @@
 
                     </div>
                 </form>
-                <div class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4'>
-                    <p class="is-capitalized">Major Requirements:</p>
+                <hr>
+                <div class='has-text-weight-normal is-family-primary has-text-black is-size-4'>
                     <div id="majorReqs"></div>
                     <br>                     
                 </div>
             </div>
             <div id='right' class='column'>
-                <label class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4' for="major">Intended Minor:</label>
+                <label class='has-text-weight-normal is-family-primary has-text-black is-size-4' for="major"><b>Minor Requirements</b></label>
+                <hr>
                 <form autocomplete="off">
                     <div class="autocomplete">
                         <input id="minor" type="text" name="minor" placeholder="Minor (If undecided choose 'undecided')">
@@ -72,8 +81,8 @@
 
                     </div>
                 </form>
-                <div class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4'>
-                    <p class="is-capitalized">Minor Requirements:</p>
+                <hr>
+                <div class='has-text-weight-normal is-family-primary has-text-black is-size-4'>
                     <div id="minorReqs"></div>
                     <br>                      
                 </div>

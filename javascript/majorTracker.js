@@ -174,8 +174,8 @@ async function loadWorksheet() {
     document.getElementById('name').innerHTML = `${item} ${fullname}!`;
     const major = getUserMajor();
     const minor = getUserMinor();  
-    document.getElementById('major-name').innerHTML = `You are currently registered as a ${major}`;
-    document.getElementById('minor-name').innerHTML = `and are currently registered as a ${minor}`;
+    document.getElementById('major-name').innerHTML = `You are currently registered as a <span class="derp" style="color: #111";>${major}</span>`;
+    document.getElementById('minor-name').innerHTML = `and are currently registered as a <span class="derp" style="color: #111";>${minor}</span>`;
 
     const classesTaken = getUserClasses();
     const requirements = getRequirements();
