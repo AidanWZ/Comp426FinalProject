@@ -89,6 +89,7 @@ function getUserData() {
     request.setRequestHeader("Authorization", "Bearer " + token);
     request.send(null);
     let result = JSON.parse(request.response).result;
+    console.log(result);
     return result;
 }
 
@@ -119,6 +120,7 @@ function getUserClasses() {
     request.setRequestHeader("Authorization", "Bearer " + token);
     request.send(null);
     let result = JSON.parse(request.response).result;
+    console.log(result);
     return result;
 }
 
@@ -149,15 +151,15 @@ async function loadWorksheet() {
     let greetings = ['Hello', 'Bonjour', 'Hola', 'Hallo', 'Ciao', 'Ola', 'Namaste', 'Salaam', 'Zdras-Tvuy-te', 'Konnichiwa', 'ahn-young-se-yo', 'marhaba'];
     var item = greetings[Math.floor(Math.random()*greetings.length)];
     let token = localStorage.getItem("jwt");
-    const username = getUserData(token).name;
-    document.getElementById('name').innerHTML = `${item} ${username}!`;
+    const first = getUserData(token).first;
+    const last = getUserData(token).last;
+    let fullname = first+" "+last;
+    document.getElementById('name').innerHTML = `${item} ${fullname}!`;
     const major = getUserMajor();
-    const minor = getUserMinor();
-    
+    const minor = getUserMinor();  
     document.getElementById('major-name').innerHTML = `You are currently registered as a ${major}`;
     document.getElementById('minor-name').innerHTML = `and are currently registered as a ${minor}`;
 
-    
     const classesTaken = getUserClasses();
     const requirements = getRequirements();
     var majorReqs = requirements;
@@ -231,6 +233,30 @@ function getMinorList() {
     return JSON.parse(request.response).result;
 }
 
+async function submitMajor() {
+    let major2 = document.getElementById('major');
+    let token = localStorage.getItem("jwt");
+    // const result = axios.post('http://localhost:3000/user/data/major/', {data: major2}, {headers: {authorization: 'Bearer ' + token}});
+    const result = await axios ({
+        method: 'post',
+        url: 'http://localhost:3000/user/data/major/',
+        data: major2,
+        headers: {
+            authorization: 'Bearer ' + token,
+        },
+    })
+    console.log(result);
+    return result;
+}
+
+async function submitMinor() {
+    let minor2 = document.getElementById('minor');
+    let token = localStorage.getItem("jwt");
+    const result = axios.post('http://localhost:3000/user/data/major/', {data: minor2}, {headers: {authorization: 'Bearer ' + token}});
+    console.log(result);
+    return result;
+}
+
 $(document).ready(function(){
     loadWorksheet();
     let majorList = getMajorList();
@@ -242,4 +268,6 @@ $(document).ready(function(){
     $("#class-registration").on("click", classRegistration);
     $("#planner").on("click", planner);
     $("#logout").on("click", logout);
+    $("#submitMajor").on("click", submitMajor);
+    $().on("click", submitMinor);
 })
