@@ -50,17 +50,17 @@ body {
   color: #99badd;
 }
 
-/* .left-pane {
-  width: 50%;
+.left-pane {
+  width: 60%;
   float: left;
   background-color:transparent;
 }
 
 .right-pane {
-  width: 50%;
+  width: 40%;
   float: right;
   background-color:transparent;
-} */
+}
 
 .register-card-title {
   color: white;
