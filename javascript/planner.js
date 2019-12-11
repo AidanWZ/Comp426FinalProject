@@ -2,18 +2,85 @@ const pubRoot = new axios.create({
     baseURL: "http://localhost:3001/public/Portal"
 });
 
+let classCatalog = getClassCatalog();
+let classes = getUserClasses();
+
 $(document).ready(function(){
-    
-    $("#home").on("click", home);
-    $("#major-tracker").on("click", majorTracker);
-    $("#class-registration").on("click", classRegistration);
-    $("#planner").on("click", planner);
-    $("#logout").on("click", logout);
-    $("#submit").on("click", logout);
+    autocomplete(document.getElementById("myInput"), classCatalog);
+    $root = $("#root");
+    $("#submit").on("click", submit);
     $("#clear").on("click", logout);
 })
 
+function autocomplete(inp, arr) {
+    let token = localStorage.getItem("jwt");
+    var currentFocus;
+    inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      this.parentNode.appendChild(a);
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          b = document.createElement("DIV");
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+              b.addEventListener("click", function(e) {
+              inp.value = this.getElementsByTagName("input")[0].value;
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+    });
+    inp.addEventListener("keydown", function(e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+          currentFocus++;
+          addActive(x);
+        } else if (e.keyCode == 38) {
+          currentFocus--;
+          addActive(x);
+        } else if (e.keyCode == 13) {
+          e.preventDefault();
+          if (currentFocus > -1) {
+            if (x) x[currentFocus].click();
+          }
+        }
+    });
+    function addActive(x) {
+      if (!x) return false;
+      removeActive(x);
+      if (currentFocus >= x.length) currentFocus = 0;
+      if (currentFocus < 0) currentFocus = (x.length - 1);
+      x[currentFocus].classList.add("autocomplete-active");
+    }
+    function removeActive(x) {
+      for (var i = 0; i < x.length; i++) {
+        x[i].classList.remove("autocomplete-active");
+      }
+    }
+    function closeAllLists(elmnt) {
+      var x = document.getElementsByClassName("autocomplete-items");
+      for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
 async function submit() {
+    console.log("submitting");
     clearInfo();
     var classString = document.getElementById('myInput').value;
     var deptString;
@@ -27,8 +94,9 @@ async function submit() {
         }
     }
 
-    var classes = offeredClasses();
-    var catelogData = getCatelog([deptString, classString]);
+    var classes = getOfferedClasses();
+    var userClasses = getUserClasses();
+    var catelogData = getClassCatelogLookup([deptString, classString]);
     var isOffered = false;
     var index = -1;
     var classData;
@@ -56,15 +124,32 @@ async function submit() {
         document.getElementById('time').innerHTML = classData.time;
         document.getElementById('seats').innerHTML = classData.seats;
         document.getElementById('waitlist').innerHTML = classData.waitlist;
+        document.getElementById('available').innerHTML = `<span class="info has-text-success" id="waitlist">Yes</span>`;
+        var taken = userClasses.includes(classString);
+        if (taken) {
+            document.getElementById('taken').innerHTML = `<span class="info has-text-success" id="waitlist">Yes</span>`;
+        }
+        else {
+            document.getElementById('taken').innerHTML = `<span class="info has-text-danger" id="waitlist">No</span>`;
+        }
     }
     else {
         document.getElementById('name').innerHTML = classString;
         document.getElementById('subtitle').innerHTML = catelogData.subtitle;
         document.getElementById('description').innerHTML = catelogData.description;
+        document.getElementById('taken').innerHTML = `<span class="info has-text-danger" id="waitlist">No</span>`;
+        var taken = userClasses.includes(classString);
+        if (taken) {
+            document.getElementById('taken').innerHTML = `<span class="info has-text-success" id="waitlist">Yes</span>`;
+        }
+        else {
+            document.getElementById('taken').innerHTML = `<span class="info has-text-danger" id="waitlist">No</span>`;
+        }
     }
 
 }
 function clear() {
+    console.log("clearing");
     document.getElementById('myInput').value = '';
     clearInfo()
 }
@@ -94,7 +179,14 @@ async function getDepts() {
     return classes.data.result;
 }
 
-async function getCatelog(layers) {
+function getClassCatalog() {
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/public/Portal/ClassTitles', false);
+    request.send(null);
+    return JSON.parse(request.response).result;
+}
+
+async function getClassCatelogLookup(layers) {
     var path = 'http://localhost:3000/public/Portal/Catelog/';
     for (let i = 0; i < layers.length-1; i++) {
         path = path + layers[i] +  '/'
@@ -108,13 +200,15 @@ async function getCatelog(layers) {
     return classes.data.result;
 }
 
-async function offeredClasses() {
-    const classes = await axios ({
+async function getClassOfferings() {
+    var token = window.localStorage.getItem('jwt');
+    const classOfferings = await axios ({
         method: 'get',
         url: 'http://localhost:3000/public/Portal/ClassOfferings',
+        headers: {authentication: "bearer " + token}
     });
-    return classes.data.result;
-}
+    return classOfferings.data.result;
+  }
 
 async function getClasses() {
     const classes = await axios ({
