@@ -35,9 +35,7 @@
             </div>
         </div>
         <br>
-        <form class="changer" id="changer">
-            
-        </form>
+        
         <div class="row">
             <div class='column' id='left'>
                 <div class='has-text-weight-normal is-family-primary has-text-black is-size-4'>
@@ -47,20 +45,35 @@
                 </div>
             </div>
             <div id='mid' class='column'>
-                 <div class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4'>
+                <label class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4' for="major">Intended Major:</label>
+                <form autocomplete="off" action="action_page.php">
+                    <div class="autocomplete">
+                        <input id="major" type="text" name="major" placeholder="Major (If undecided choose 'undecided')">
+                        <button class='button is-success' id='majorSubmit'>Submit</button>
+                    </div>
+                </form>
+                <div class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4'>
                     <p class="is-capitalized">Major Requirements:</p>
                     <div id="majorReqs"></div>
-                    <br>                      
+                    <br>                     
                 </div>
             </div>
             <div id='right' class='column'>
+                <label class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4' for="major">Intended Minor:</label>
+                <form autocomplete="off" action="action_page.php">
+                    <div class="autocomplete">
+                        <input id="minor" type="text" name="minor" placeholder="Minor (If undecided choose 'undecided')">
+                        <button class='button is-success' id='majorSubmit'>Submit</button>
+                    </div>
+                </form>
                 <div class='has-text-weight-normal is-family-primary is-lowercase has-text-black is-size-4'>
                     <p class="is-capitalized">Minor Requirements:</p>
-                    <div id="majorReqs"></div>
+                    <div id="minorReqs"></div>
                     <br>                      
                 </div>
             </div>
         </div>
+        <br>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
