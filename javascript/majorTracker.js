@@ -7,7 +7,9 @@ const userRoot = new axios.create({
 });
 
 const majorList = getMajorList();
+majorList.push("undecided");
 const minorList = getMinorList();
+minorList.push("undecided");
 
 function getMajorList() {
     let token = localStorage.getItem("jwt");
@@ -176,11 +178,28 @@ async function loadWorksheet() {
     const minor = getUserMinor();  
     document.getElementById('major-name').innerHTML = `You are currently registered as a <span class="derp" style="color: #111";>${major}</span>`;
     document.getElementById('minor-name').innerHTML = `and are currently registered as a <span class="derp" style="color: #111";>${minor}</span>`;
-
-    const classesTaken = getUserClasses();
+    const classesTaken = [];
+    if (window.localStorage.getItem("registered") == "yes"){
+        classesTaken = getUserClasses();
+    }
+    else {
+        classTaken = [];
+    }
     const requirements = getRequirements();
-    var majorReqs = requirements[major]['reqs'];
-    var minorReqs = requirements[minor]['reqs'];
+    var majorReqs;
+    var minorReqs;
+    if (major == 'undecided') {
+        majorReqs = [];
+    }
+    else {
+        majorReqs = requirements[major]['reqs'];
+    }
+    if ( minor == 'undecided') {
+        minorReqs = [];
+    }
+    else {
+        minorReqs = requirements[minor]['reqs'];
+    }
     for (let i = 0; i < majorReqs.length; i++) {
         if(majorReqs[i].length > 8) {
             majorReqs.splice(i, 1);
@@ -191,13 +210,20 @@ async function loadWorksheet() {
             minorReqs.splice(i, 1);
         }
     }
-
-    for(let i = 0; i < classesTaken.length; i++) {
-        document.getElementById("classesTaken").innerHTML += "<div>" + classesTaken[i] + "<div>";
+    if (classesTaken.length == 0) {
+        document.getElementById("classesTaken").innerHTML = `<span class="has-text-info">Go register for classes!</span>`;
     }
+    else {
+        for(let i = 0; i < classesTaken.length; i++) {
+            document.getElementById("classesTaken").innerHTML += "<div>" + classesTaken[i] + "<div>";
+        }
+    }
+
     if (majorReqs.length == 0) {
         document.getElementById("majorReqs").innerHTML +=
-        "<div><span class='has-text-info'>No Requirements found</span></div>";   
+        "<div><span class='has-text-info'>Currently undecided</span></div>"; 
+        document.getElementById("majorReqs").innerHTML +=
+        "<div><span class='has-text-info'>Add a major above</span></div>";   
     }
     else {
         for(let i = 0; i < majorReqs.length; i++) {
@@ -213,7 +239,9 @@ async function loadWorksheet() {
     }
     if (minorReqs.length == 0) {
         document.getElementById("minorReqs").innerHTML +=
-        "<div><span class='has-text-info'>No Requirements found</span></div>";   
+        "<div><span class='has-text-info'>Currently undecided</span></div>"; 
+        document.getElementById("minorReqs").innerHTML +=
+        "<div><span class='has-text-info'>Add a minor above</span></div>";   
     }
     else {
         for(let i = 0; i < minorReqs.length; i++) {
@@ -257,7 +285,9 @@ async function submitMinor() {
 $(document).ready(function(){
     loadWorksheet();
     let majorList = getMajorList();
+    majorList.push("undecided");
     let minorList = getMinorList();
+    minorList.push("undecided");
     autocomplete(document.getElementById("major"), majorList);
     autocomplete(document.getElementById("minor"), minorList);
     $("#majorSubmit").on("click", submitMajor);
