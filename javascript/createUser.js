@@ -8,7 +8,9 @@ const userRoot = new axios.create({
 
 $(document).ready(function(){
     let majorList = getMajorList();
+    majorList.push("undecided");
     let minorList = getMinorList();
+    minorList.push("undecided");
     autocomplete(document.getElementById("major"), majorList);
     autocomplete(document.getElementById("minor"), minorList);
     $("#signupbtn").on("click", submitRegistry);

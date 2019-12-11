@@ -3,8 +3,10 @@ $(document).ready(function(){
     $("#no").on("click", no);
 });
 function yes() {
+    
     window.location.assign('http://localhost:3001/html/class-registration/classRegistration.html');
 }
 function no() {
+    window.localStorage.setItem("registered", "no");
     window.location.assign('http://localhost:3001/html/welcome/welcome.html');
 }

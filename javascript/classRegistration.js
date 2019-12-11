@@ -210,6 +210,7 @@ async function submitClasses() {
   const newUserBool = window.localStorage.getItem('newUser');
   if (newUserBool == 'yes') {
     window.localStorage.setItem('newUser', 'no');
+    window.localStorage.setItem("registered", "yes");
     window.location.replace('http://localhost:3001/html/home/home.html');
   }
 }
