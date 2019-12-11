@@ -198,6 +198,7 @@ async function submit() {
         }
         else {
             console.log(catelogData.title);
+
             document.getElementById('classTitle').innerHTML = 
             `<h3><b>Title</b></h3>
             <span class="info" id="subject">${catelogData.title}</span>`;

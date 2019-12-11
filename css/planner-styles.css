@@ -71,9 +71,21 @@ body {
 
 .right {
   float: right;
-  background-color: white;
   margin-right: 10%;
-  width: 70%;
+  width: 65%;
+  margin-left: 5%;
+}
+
+#info-card {
+  background-color: white;
+  max-height: 700px;
+
+  overflow: auto;
+}
+
+.bigtitle {
+  color: white;
+  font-size: 300%;
 }
 
 .plannerTitle {
@@ -171,6 +183,3 @@ input[type=submit] {
   color: #ffffff; 
 }
 
-.bigtitle {
-  color: white;
-}
