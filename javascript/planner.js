@@ -277,6 +277,7 @@ function clearInfo() {
     document.getElementById('waitlist').innerHTML = "";
     document.getElementById('available').innerHTML = "";
     document.getElementById('taken').innerHTML = "";
+    document.getElementById('planned').innerHTML = "";
 }
 
 function getDepts() {
