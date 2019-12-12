@@ -190,6 +190,7 @@ async function loadWorksheet() {
     document.getElementById('minor-name').innerHTML = `and are currently registered as a <span class="derp" style="color: #111";>${minor}</span>`;
     var classesTaken;
     var classesPlanned;
+    console.log(window.localStorage.getItem("registered"));
     if (window.localStorage.getItem("registered") == "yes"){
         classesTaken = getUserClasses();
         classesPlanned = getUserPlans();
