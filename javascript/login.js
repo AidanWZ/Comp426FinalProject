@@ -23,6 +23,9 @@ async function login() {
         });
         let token = result.data.jwt;
         localStorage.setItem("jwt", token);
+        window.localStorage.setItem('registered', 'yes');
+        window.localStorage.setItem('newUser1', 'yes');
+        window.localStorage.setItem('newUser2', 'yes');
         window.location.assign('http://localhost:3001/html/home/home.html');
     } catch (error) {
         document.getElementById('message').innerHTML = '<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>';
@@ -30,5 +33,5 @@ async function login() {
 }
 
 function createAccount() {
-    window.location.replace('http://localhost:3001/html/create-user/createUser.html');
+    window.location.replace('/html/create-user/createUser.html');
 }

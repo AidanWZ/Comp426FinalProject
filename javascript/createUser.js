@@ -222,6 +222,7 @@ async function submitRegistry() {
     }
     window.localStorage.setItem('newUser1', 'yes');
     window.localStorage.setItem('newUser2', 'yes');
+    window.localStorage.setItem('registered', 'yes');
 }
 function cancelRegistry() {
     window.location.assign('http://localhost:3001/index.html');
