@@ -127,7 +127,7 @@ function renderClassesTaken() {
       classesHTML = classesHTML + `
       <div id="class${x}" style="margin-top: 5px;">
           ${classes[x]}
-          <button class="deleteTaken is-medium is-pulled-right" data="${x}" id="${x}"></button>
+          <button class="delete deleteTaken is-medium is-pulled-right" data="${x}" id="${x}"></button>
       </div>
       `;
   }
@@ -140,7 +140,7 @@ function renderClassesPlanned() {
         classesHTML = classesHTML + `
         <div id="class${x}" style="margin-top: 5px;">
             ${planned[x]}
-            <button class="deletePlanned is-medium is-pulled-right" data="${x}" id="${x}"></button>
+            <button class="delete deletePlanned is-medium is-pulled-right" data="${x}" id="${x}"></button>
         </div>
         `;
     }
