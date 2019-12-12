@@ -145,6 +145,16 @@ function getUserClasses() {
     return result;
 }
 
+function getUserPlans() {
+    let token = localStorage.getItem("jwt");
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/user/plans', false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = JSON.parse(request.response).result;
+    return result;
+}
+
 function getRequirementsLookup(major) {
     let token = localStorage.getItem("jwt");
     var request = new XMLHttpRequest();
@@ -178,12 +188,15 @@ async function loadWorksheet() {
     const minor = getUserMinor();  
     document.getElementById('major-name').innerHTML = `You are currently registered as a <span class="derp" style="color: #111";>${major}</span>`;
     document.getElementById('minor-name').innerHTML = `and are currently registered as a <span class="derp" style="color: #111";>${minor}</span>`;
-    const classesTaken = [];
+    var classesTaken;
+    var classesPlanned;
     if (window.localStorage.getItem("registered") == "yes"){
         classesTaken = getUserClasses();
+        classesPlanned = getUserPlans();
     }
     else {
-        classTaken = [];
+        classesTaken = [];
+        classesPlanned = [];
     }
     const requirements = getRequirements();
     var majorReqs;
@@ -231,6 +244,10 @@ async function loadWorksheet() {
                 document.getElementById("majorReqs").innerHTML +=
                     "<div>"+majorReqs[i]+": <span class='has-text-success'>Taken</span></div>";
             }
+            else if (classesPlanned.includes(majorReqs[i])) {
+                document.getElementById("majorReqs").innerHTML +=
+                    "<div>"+majorReqs[i]+": <span class='has-text-info'>Planned</span></div>";
+            }
             else {
                 document.getElementById("majorReqs").innerHTML += 
                 "<div>"+majorReqs[i]+": <span class='has-text-danger'>Not taken</span></div>";
@@ -248,6 +265,10 @@ async function loadWorksheet() {
             if (classesTaken.includes(minorReqs[i])) {
                 document.getElementById("minorReqs").innerHTML +=
                     "<div>"+minorReqs[i]+": <span class='has-text-success'>Taken</span></div>";
+            }
+            else if (classesPlanned.includes(minorReqs[i])) {
+                document.getElementById("minor").innerHTML +=
+                    "<div>"+minorReqs[i]+": <span class='has-text-info'>Planned</span></div>";
             }
             else {
                 document.getElementById("minorReqs").innerHTML += 

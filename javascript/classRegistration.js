@@ -9,9 +9,17 @@ const statusRoot = new axios.create({
 })
 
 var classes;
+var planned;
 let classCatalog = getClassCatalog();
-let userStatus = window.localStorage.getItem('newUser');
-if (userStatus != 'yes') {
+let userStatus1 = window.localStorage.getItem('newUser1');
+let userStatus2 = window.localStorage.getItem('newUser2');
+if (userStatus1 != 'yes') {
+  planned = getUserPlans();
+}
+else {
+  planned = [];
+}
+if (userStatus2 != 'yes') {
   classes = getUserClasses();
 }
 else {
@@ -28,10 +36,10 @@ function getUserData() {
   return result;
 }
 
-
 function autocomplete(inp, arr) {
 
-    document.getElementById('root').innerHTML = renderClasses();
+    document.getElementById('root-taken').innerHTML = renderClassesTaken();
+    document.getElementById('root-planned').innerHTML = renderClassesPlanned();
     document.getElementById('myInput').value="";
 
     let token = localStorage.getItem("jwt");
@@ -39,7 +47,6 @@ function autocomplete(inp, arr) {
     const first = userData.first;
     const last = userData.last;
     let fullname = first+" "+last;
-    console.log(fullname);
     document.getElementById('username').innerHTML = `<b>Registering for user ${fullname}</b>`
     
     var currentFocus;
@@ -114,13 +121,26 @@ function getClassCatalog() {
   return JSON.parse(request.response).result;
 }
 
-function renderClasses() {
+function renderClassesTaken() {
+  let classesHTML = ``;
+  for (let x = 0; x < classes.length; x++) {
+      classesHTML = classesHTML + `
+      <div id="class${x}" style="margin-top: 5px;">
+          ${classes[x]}
+          <button class="deleteTaken is-medium is-pulled-right" data="${x}" id="${x}"></button>
+      </div>
+      `;
+  }
+  return classesHTML;
+}
+
+function renderClassesPlanned() {
     let classesHTML = ``;
-    for (let x = 0; x < classes.length; x++) {
+    for (let x = 0; x < planned.length; x++) {
         classesHTML = classesHTML + `
         <div id="class${x}" style="margin-top: 5px;">
-            ${classes[x]}
-            <button class="delete is-medium is-pulled-right" data="${x}" id="${x}"></button>
+            ${planned[x]}
+            <button class="deletePlanned is-medium is-pulled-right" data="${x}" id="${x}"></button>
         </div>
         `;
     }
@@ -146,57 +166,135 @@ function getUserClasses() {
   return result;
 }
 
-function deleteClass(event) {
+function getUserPlans() {
+  let token = localStorage.getItem("jwt");
+  var request = new XMLHttpRequest();
+  request.open('GET', 'http://localhost:3000/user/plans', false);
+  request.setRequestHeader("Authorization", "Bearer " + token);
+  request.send(null);
+  let result = JSON.parse(request.response).result;
+  return result;
+}
+
+function deleteClassPlan(event) {
     let number = event.target.getAttribute('data');
-    let newClasses = new Array(classes.length-1);
+    let newClasses = new Array(planned.length-1);
     if (number == 0) {
-        for (let x =0; x<classes.length-1; x++) {
-            newClasses[x] = classes[x+1];
+        for (let x =0; x<planned.length-1; x++) {
+            newClasses[x] = planned[x+1];
         }
-    } else if (number == classes.length-1) {
-        for (let x = 0; x < classes.length-1; x++) {
-            newClasses[x] = classes[x];
+    } else if (number == planned.length-1) {
+        for (let x = 0; x < planned.length-1; x++) {
+            newClasses[x] = planned[x];
         }
     } else {
         let y = 0;
         for (let x = 0; x < newClasses.length; x++) {
-            newClasses[x]=classes[y];
+            newClasses[x]=planned[y];
             if ((y+1) == number) {
                 y++;
             }
             y++;
         }
     }
-    classes=newClasses;
-    if (classes.length == 0) {
-        document.getElementById('root').innerHTML = `None`;
+    planned=newClasses;
+    if (planned.length == 0) {
+        document.getElementById('root-planned').innerHTML = `None`;
     } else {
-        document.getElementById('root').innerHTML = renderClasses();
+        document.getElementById('root-planned').innerHTML = renderClassesPlanned();
     }
-    $(".delete").on("click", deleteClass);
+    $(".deletePlanned").on("click", deleteClassPlan);
+}
+function deleteClassTaken(event) {
+  let number = event.target.getAttribute('data');
+  let newClasses = new Array(classes.length-1);
+  if (number == 0) {
+      for (let x =0; x<classes.length-1; x++) {
+          newClasses[x] = classes[x+1];
+      }
+  } else if (number == classes.length-1) {
+      for (let x = 0; x < classes.length-1; x++) {
+          newClasses[x] = classes[x];
+      }
+  } else {
+      let y = 0;
+      for (let x = 0; x < newClasses.length; x++) {
+          newClasses[x]=classes[y];
+          if ((y+1) == number) {
+              y++;
+          }
+          y++;
+      }
+  }
+  classes=newClasses;
+  if (classes.length == 0) {
+      document.getElementById('root-taken').innerHTML = `None`;
+  } else {
+      document.getElementById('root-taken').innerHTML = renderClassesTaken();
+  }
+  $(".deleteTaken").on("click", deleteClassTaken);
 }
 
-function addButton() {
+function addButtonPlan() {
     let name = document.getElementById('myInput').value;
     let badClasses = [];
     if (!classCatalog.includes(name)) {
       badClasses.push(name);
-      document.getElementById('warnings').innerHTML = `<span class=has-text-danger>${name} is not a class</span>`;
+      document.getElementById('warnings-planned').innerHTML = `<span class=has-text-danger>${name} is not a class</span>`;
     }
     else {
-      classes[classes.length] = name;
-      document.getElementById('root').innerHTML = renderClasses();
+      planned[planned.length] = name;
+      document.getElementById('root-planned').innerHTML = renderClassesPlanned();
       document.getElementById('myInput').value="";
     }
-    $(".delete").on("click", deleteClass);
-    $("#cancelButton").on("click", cancelClasses);
+    $(".deletePlanned").on("click", deleteClassPlan);
+    $("#cancelButtonPlan").on("click", cancelClassesPlan);
 }
 
-function cancelClasses() {
+function cancelClassesPlan() {
   window.location.replace('http://localhost:3001/html/home/home.html');
 }
 
-async function submitClasses() {
+function addButtonTaken() {
+  let name = document.getElementById('myInput').value;
+  let badClasses = [];
+  if (!classCatalog.includes(name)) {
+    badClasses.push(name);
+    document.getElementById('warnings-taken').innerHTML = `<span class=has-text-danger>${name} is not a class</span>`;
+  }
+  else {
+    classes[classes.length] = name;
+    document.getElementById('root-taken').innerHTML = renderClassesTaken();
+    document.getElementById('myInput').value="";
+  }
+  $(".deleteTaken").on("click", deleteClassTaken);
+  $("#cancelButtonTaken").on("click", cancelClassesTaken);
+}
+
+function cancelClassesTaken() {
+  window.location.replace('http://localhost:3001/html/home/home.html');
+}
+
+async function submitClassesPlan() {
+  let token = localStorage.getItem("jwt");
+  for (let i = 0; i < planned.length; i++) {
+    if (!classCatalog.includes(planned[i])) {
+      badClasses.push(planned[i]);
+      document.getElementById('warnings').innerHTML += `<span class=has-text-danger>${planned[i]} is not a class</span>`;
+      planned.splice(i, 1);
+    }
+  }
+  axios.post('http://localhost:3000/user/plans/', {data: planned}, {headers: {authorization: 'Bearer ' + token}});
+  
+  const newUserBool = window.localStorage.getItem('newUser');
+  window.localStorage.setItem('newUser1', 'no');
+  if (newUserBool == 'yes') {
+    window.localStorage.setItem("registered", "yes");
+    window.location.replace('http://localhost:3001/html/home/home.html');
+  }
+}
+
+async function submitClassesTaken() {
   let token = localStorage.getItem("jwt");
   for (let i = 0; i < classes.length; i++) {
     if (!classCatalog.includes(classes[i])) {
@@ -208,8 +306,8 @@ async function submitClasses() {
   axios.post('http://localhost:3000/user/classes/', {data: classes}, {headers: {authorization: 'Bearer ' + token}});
   
   const newUserBool = window.localStorage.getItem('newUser');
+  window.localStorage.setItem('newUser2', 'no');
   if (newUserBool == 'yes') {
-    window.localStorage.setItem('newUser', 'no');
     window.localStorage.setItem("registered", "yes");
     window.location.replace('http://localhost:3001/html/home/home.html');
   }
@@ -217,11 +315,15 @@ async function submitClasses() {
 
 $(document).ready(function() {
     autocomplete(document.getElementById("myInput"), classCatalog);
-    $root = $("#root");
+    $root = $("#root-taken");
 
-    $("#addButton").on("click", addButton);
-    $(".delete").on("click", deleteClass);
-    $("#cancelButton").on("click", cancelClasses);
-    $("#submitButton").on("click", submitClasses);    
+    $("#addButtonTaken").on("click", addButtonTaken);
+    $("#addButtonPlanned").on("click", addButtonPlan);
+    $(".deleteTaken").on("click", deleteClassTaken);
+    $(".deletePlanned").on("click", deleteClassPlan);
+    $("#cancelButtonPlan").on("click", cancelClassesPlan);
+    $("#submitButtonPlan").on("click", submitClassesPlan); 
+    $("#cancelButtonTaken").on("click", cancelClassesTaken);
+    $("#submitButtonTaken").on("click", submitClassesTaken);    
 });
 
