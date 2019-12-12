@@ -51,13 +51,18 @@ body {
 }
 
 .left-pane {
-  width: 60%;
+  width: 40%;
+  float: left;
+  background-color:transparent;
+}
+.mid-pane {
+  width: 30%;
   float: left;
   background-color:transparent;
 }
 
 .right-pane {
-  width: 40%;
+  width: 30%;
   float: right;
   background-color:transparent;
 }

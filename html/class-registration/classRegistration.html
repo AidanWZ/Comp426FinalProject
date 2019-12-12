@@ -45,24 +45,47 @@
                                 <div class="autocomplete" style="width:300px;">
                                     <input id="myInput" type="text" name="myCountry" placeholder="COMP426">
                                 </div>
-                                <button class="button is-info" type="button" id="addButton">Add Class</button>
+                                <button class="button is-info" type="button" id="addButtonTaken">Add Class</button>
+                                <button class="button is-info" type="button" id="addButtonPlanned">PlanClass</button>
                             </form>
                             <p style="color: white;">To add a class, hit the "Add Class" button</p>
                         <br>
                     </div>
                 </div>
             </div>
-            <div class="right-pane pane">
+            <div class="mid-pane">
                 <div class="edit-classes">
-                    <span><b>List of Classes</b></span>
-                    <div id="root" class="classList">
+                    <span><b>List of Classes Planned</b></span>
+                    <div id="root-planned" class="classList">
                         None
                     </div>
+                    <div>
+                        <p style="font-size: 20px; color: white;">Click the button to the right </span>
+                        <p style="font-size: 20px; color: white;">of a class to remove it</span>
+                    </div>                    
                     <br>
-                    <button style="width: 150px;" class="button is-danger" type='button' id='cancelButton'>Cancel</button>
-                    <button style="width: 150px;" class="button is-success" type='button' id='submitButton'>Submit classes</button>
+                    <button style="width: 150px;" class="button is-danger" type='button' id='cancelButtonPlan'>Cancel</button>
+                    <button style="width: 150px;" class="button is-success" type='button' id='submitButtonPlan'>Submit classes</button>
                 </div>
-                <div id="warnings">
+                <div id="warnings-planned">
+                    
+                </div>
+            </div>
+            <div class="right-pane pane">
+                <div class="edit-classes">
+                    <span><b>List of Classes Taken</b></span>
+                    <div id="root-taken" class="classList">
+                        None
+                    </div>
+                    <div>
+                        <p style="font-size: 20px; color: white;">Click the button to the right </span>
+                        <p style="font-size: 20px; color: white;">of a class to remove it</span>
+                    </div>
+                    <br>
+                    <button style="width: 150px;" class="button is-danger" type='button' id='cancelButtonTaken'>Cancel</button>
+                    <button style="width: 150px;" class="button is-success" type='button' id='submitButtonTaken'>Submit classes</button>
+                </div>
+                <div id="warnings-taken">
                     
                 </div>
             </div>

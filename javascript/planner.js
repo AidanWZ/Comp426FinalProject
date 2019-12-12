@@ -5,6 +5,7 @@ const pubRoot = new axios.create({
 let classList = getClassList();
 let classCatalog = getClassCatalog();
 let userClasses = getUserClasses();
+let userPlans = getUserPlans();
 let classOfferings = getClassOfferings();
 var depts = getDepts();
 
@@ -103,23 +104,19 @@ async function submit() {
             }
         }
         var catelogData = classCatalog[deptString][name];
-        console.log(catelogData);
         var isOffered = false;
         var index = -1;
         var classData;
         for (let i = 0; i < classOfferings.length; i++) {
             var classString = classOfferings[i].subject.toUpperCase() + classOfferings[i].catelogNum;
             if (name == classString) {
-                console.log(classString);
                 isOffered = true;
                 index = i;
                 classData = classOfferings[i];
                 break;
             }
         }
-        console.log(catelogData);
         if (isOffered) {
-            console.log(catelogData.title);
             document.getElementById('classTitle').innerHTML = 
             `<h3><b>Title</b></h3>
             <span class="info" id="subject">${catelogData.title}</span>`;
@@ -193,12 +190,22 @@ async function submit() {
             else {
                 document.getElementById('taken').innerHTML = 
                 `<h3><b>Taken</b></h3>
-                <span class="info has-text-danger" id="subject">Yes</span>`;
+                <span class="info has-text-danger" id="subject">No</span>`;
+            }
+
+            var planned = userPlans.includes(catelogData.title);
+            if (planned) {
+                document.getElementById('planned').innerHTML = 
+                `<h3><b>Planned</b></h3>
+                <span class="info has-text-success" id="subject">Yes</span>`;
+            }
+            else {
+                document.getElementById('planned').innerHTML = 
+                `<h3><b>Planned</b></h3>
+                <span class="info has-text-danger" id="subject">No</span>`;
             }
         }
         else {
-            console.log(catelogData.title);
-
             document.getElementById('classTitle').innerHTML = 
             `<h3><b>Title</b></h3>
             <span class="info" id="subject">${catelogData.title}</span>`;
@@ -228,6 +235,18 @@ async function submit() {
             else {
                 document.getElementById('taken').innerHTML = 
                 `<h3><b>Taken</b></h3>
+                <span class="info has-text-danger" id="subject">No</span>`;
+            }
+
+            var planned = userPlans.includes(catelogData.title);
+            if (planned) {
+                document.getElementById('planned').innerHTML = 
+                `<h3><b>Planned</b></h3>
+                <span class="info has-text-success" id="subject">Yes</span>`;
+            }
+            else {
+                document.getElementById('planned').innerHTML = 
+                `<h3><b>Planned</b></h3>
                 <span class="info has-text-danger" id="subject">No</span>`;
             }
         }
@@ -306,6 +325,16 @@ function getUserClasses() {
     let token = localStorage.getItem("jwt");
     var request = new XMLHttpRequest();
     request.open('GET', 'http://localhost:3000/user/classes', false);
+    request.setRequestHeader("Authorization", "Bearer " + token);
+    request.send(null);
+    let result = JSON.parse(request.response).result;
+    return result;
+}
+
+function getUserPlans() {
+    let token = localStorage.getItem("jwt");
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/user/plans', false);
     request.setRequestHeader("Authorization", "Bearer " + token);
     request.send(null);
     let result = JSON.parse(request.response).result;

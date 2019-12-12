@@ -220,7 +220,8 @@ async function submitRegistry() {
                         ${note}
                     </div>`;
     }
-    window.localStorage.setItem('newUser', 'yes');
+    window.localStorage.setItem('newUser1', 'yes');
+    window.localStorage.setItem('newUser2', 'yes');
 }
 function cancelRegistry() {
     window.location.assign('http://localhost:3001/index.html');
